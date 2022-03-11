@@ -19,17 +19,20 @@ mongoose
 	.catch((err) => console.log("DB CONNECTION ERROR", err));
 
 // middleware
-app.use(morgan("dev"));
-app.use(json());
-app.use(urlencoded({ extended: false }));
-app.use(cors({ origin: true, credentials: true }));
-
-// routes
-const testRoutes = require("./routes/test");
-app.use("/", testRoutes);
+// app.use(morgan("dev"));
+// app.use(json());
+// app.use(urlencoded({ extended: false }));
+// app.use(cors({ origin: true, credentials: true }));
 
 // port
 const port = process.env.PORT || 8080;
+
+app.use(express.json())
+
+// routes
+const testRouter = require("./routes/test")
+const userRouter = require("./routes/user")
+app.use(userRouter);
 
 // listener
 const server = app.listen(port, () =>
