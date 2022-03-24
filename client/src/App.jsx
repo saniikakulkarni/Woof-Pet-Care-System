@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import Login from "./Pages/Login"
+import Signup from "./Pages/Signup";
+
+
 
 // functions
 import { getTest } from "./functions/test";
@@ -6,15 +10,15 @@ import { getTest } from "./functions/test";
 function App() {
 	const [data, setData] = useState("Hello World!");
 
-	useEffect(() => {
-		getTest()
-			.then((res) => setData(res.message))
-			.catch((err) => console.log(err));
-	}, []);
+	// useEffect(() => {
+	// 	getTest()
+	// 		.then((res) => setData(res.message))
+	// 		.catch((err) => console.log(err));
+	// }, []);
 
 	return (
 		<div className="App">
-			<h1>{data}</h1>
+			<Signup></Signup>
 		</div>
 	);
 }
