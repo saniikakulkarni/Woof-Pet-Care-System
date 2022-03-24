@@ -4,27 +4,28 @@ import Footer from "../components/Footer"
 import "../styles/style.css"
 
 const Signup = () => {
-    const [user, setUser] = useState({ name: '', email: '', age: '' , mobileNumber: '', passsword: '' });
+    const [user, setUser] = useState({ name: '', email: '', age: '' , mobileNumber: '', password: '' });
     const handleChange = (e) => {
       const name = e.target.name;
       const value = e.target.value;
       setUser({ ...user, [name]: value });
     };
   
-    async function handleSubmit(e){
-      e.preventDefault();
-      console.log(user)
-      const response = await fetch('localhost:8080/users',
-      {
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      })
-      
-      const data = await response.json()
-      console.log(data)
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch('http://127.0.0.1:8080/users',
+        {
+            method: "POST",
+            headers:{
+                Accept: "application/json",
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        
+        const data = await response.json()
+        console.log(data)
+        //setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
     };
 
 
@@ -64,7 +65,7 @@ const Signup = () => {
                                 <input className="form-control border-0 p-4" placeholder="Mobile Number" required="required" type='Number' id='mobileNumber' name='mobileNumber' value={user.mobileNumber} onChange={handleChange}/>
                             </div>
                             <div>
-                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit}>Sign Up</button>
+                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit} >Sign Up</button>
                             </div>
                     
                         </form>
