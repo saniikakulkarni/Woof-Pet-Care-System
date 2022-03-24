@@ -123,7 +123,7 @@ const Signup = () => {
         </div>
     </div>
     {/* <!-- Booking Start --> */}
-    {/* <Footer/> */}
+    <Footer/>
     </>
   )
 }
