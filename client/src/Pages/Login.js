@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 
 const Login = () => {
-  const [user, setUser] = useState({ email: '', passsword: '' });
+  const [user, setUser] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -12,10 +12,25 @@ const Login = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    //e.preventDefault();
-    
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://127.0.0.1:8080/users/login',{
+        method: "POST",
+        headers:{
+            Accept: "application/json",
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+    console.log(response.body)
+    const data = await response.json()
+    if(data.user && data.token){
+        console.log(data)
+            Notification("Success", "Login Successful!", "success")
+    }
+    //console.log(data)
+    setUser({ email: '', password: '' })
+    };
 
   return (
     <>
@@ -26,67 +41,67 @@ const Login = () => {
         </div>
     </div>
     {/* <!-- Space End --> */}
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Email" required="required" id='email' name='email' value={user.email} onChange={handleChange}/>
+    <div className="container-fluid">
+        <div className="container">
+            <div className="row align-items-center">
+                <div className="col-lg-5">
+                    <div className="bg-primary py-5 px-4 px-sm-5">
+                        <form className="py-5">
+                            <div className="form-group">
+                                <input type="text" className="form-control border-0 p-4" placeholder="Email" required="required" id='email' name='email' value={user.email} onChange={handleChange}/>
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control border-0 p-4" placeholder="Password" required="required" id='password' name='password' value={user.password} onChange={handleChange}/>
+                            <div className="form-group">
+                                <input type="password" className="form-control border-0 p-4" placeholder="Password" required="required" id='password' name='password' value={user.password} onChange={handleChange}/>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-10">
-                                <button class="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit}>Login</button>
+                            <div className="row">
+                                <div className="col-md-6 mb-10">
+                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit}>Login</button>
                             </div>
-                            <div class="col-md-6 mb-10">
-                                <button class="btn btn-dark btn-block border-0 py-3" onclick="location.href='signup.html'">Sign Up</button>
+                            <div className="col-md-6 mb-10">
+                                <button className="btn btn-dark btn-block border-0 py-3" >Sign Up</button>
                             </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                    <h1 class="display-4 mb-4">Login</h1>
+                <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                    <h1 className="display-4 mb-4">Login</h1>
                     <p>Find a pet lover in your preferred location</p>
-                    <div class="row py-2">
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Boarding</h5>
+                    <div className="row py-2">
+                        <div className="col-sm-6">
+                            <div className="d-flex flex-column">
+                                <div className="d-flex align-items-center mb-2">
+                                    <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <h5 className="text-truncate m-0">Pet Boarding</h5>
                                 </div>
                                 <p>Choose a place and a pet lover for ypur pet from the verified profiles.</p>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Feeding</h5>
+                        <div className="col-sm-6">
+                            <div className="d-flex flex-column">
+                                <div className="d-flex align-items-center mb-2">
+                                    <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <h5 className="text-truncate m-0">Pet Feeding</h5>
                                 </div>
                                 <p>Get the best quality pet food.</p>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Grooming</h5>
+                        <div className="col-sm-6">
+                            <div className="d-flex flex-column">
+                                <div className="d-flex align-items-center mb-2">
+                                    <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <h5 className="text-truncate m-0">Pet Grooming</h5>
                                 </div>
-                                <p class="m-0">Get your pet a spa.</p>
+                                <p className="m-0">Get your pet a spa.</p>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Tracking</h5>
+                        <div className="col-sm-6">
+                            <div className="d-flex flex-column">
+                                <div className="d-flex align-items-center mb-2">
+                                    <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <h5 className="text-truncate m-0">Pet Tracking</h5>
                                 </div>
-                                <p class="m-0">Track your pet</p>
+                                <p className="m-0">Track your pet</p>
                             </div>
                         </div>
                     </div>

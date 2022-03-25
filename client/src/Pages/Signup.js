@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import Notification from "../components/Notification"
 import "../styles/style.css"
 
 const Signup = () => {
@@ -22,9 +23,13 @@ const Signup = () => {
             },
             body: JSON.stringify(user)
         })
-        
         const data = await response.json()
-        console.log(data)
+        if(data.user && data.token){
+            console.log(data)
+            Notification("Success", "Registered Successfully!!", "success")
+        }
+        
+        // console.log(data)
         setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
     };
 

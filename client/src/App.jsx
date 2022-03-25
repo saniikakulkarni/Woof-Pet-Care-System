@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-// import Login from "./Pages/Login"
+import Login from "./Pages/Login"
 import Signup from "./Pages/Signup";
+
+import { ReactNotifications } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 // functions
 import { getTest } from "./functions/test";
@@ -15,9 +18,10 @@ function App() {
 	// }, []);
 
 	return (
-		<div >
-			<Signup></Signup>
-			{/* <Login/> */}
+		<div className="app-container">
+			<ReactNotifications />
+			{/* <Signup></Signup> */}
+			<Login/>
 		</div>
 	);
 }
