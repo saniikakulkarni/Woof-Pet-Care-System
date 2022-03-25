@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 const Login = () => {
   const [user, setUser] = useState({ email: '', passsword: '' });
@@ -11,12 +13,12 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     
   };
 
   return (
-    <div>
+    <>
     <Navbar/>
     {/* <!-- Space Start --> */}
     <div className="container-fluid bg-light pt-5">
@@ -93,7 +95,7 @@ const Login = () => {
         </div>
     </div>
     <Footer/>
-    </div>
+    </>
   )
 }
 

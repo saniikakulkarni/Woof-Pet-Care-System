@@ -19,10 +19,10 @@ const Footer = () => {
                         
                         <p><i className="fa fa-envelope mr-2"></i>woof2022@gmail.com</p>
                         <div className="d-flex justify-content-start mt-4">
-                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i className="fab fa-twitter"></i></a>
-                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i className="fab fa-facebook-f"></i></a>
-                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i className="fab fa-linkedin-in"></i></a>
-                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i className="fab fa-instagram"></i></a>
+                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style={{ "width": "36px", "height": "36px"}} href="#"><i className="fab fa-twitter"></i></a>
+                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style={{ "width": "36px", "height": "36px"}} href="#"><i className="fab fa-facebook-f"></i></a>
+                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style={{ "width": "36px", "height": "36px"}} href="#"><i className="fab fa-linkedin-in"></i></a>
+                            <a className="btn btn-outline-light rounded-circle text-center mr-2 px-0" style={{ "width": "36px", "height": "36px"}} href="#"><i className="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div className="col-md-4 mb-5">
@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
         </div>
     </div>
-    <div className="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
+    <div className="container-fluid text-white py-4 px-sm-3 px-md-5" style={{"background": "#111111"}}>
         <div className="row">
             <div className="col-md-6 text-center text-md-left mb-3 mb-md-0">
                 <p className="m-0 text-white">

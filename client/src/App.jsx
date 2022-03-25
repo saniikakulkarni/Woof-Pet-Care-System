@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import Login from "./Pages/Login"
+// import Login from "./Pages/Login"
 import Signup from "./Pages/Signup";
-
-
 
 // functions
 import { getTest } from "./functions/test";
@@ -17,8 +15,9 @@ function App() {
 	// }, []);
 
 	return (
-		<div className="App">
+		<div >
 			<Signup></Signup>
+			{/* <Login/> */}
 		</div>
 	);
 }

@@ -25,7 +25,7 @@ const Signup = () => {
         
         const data = await response.json()
         console.log(data)
-        //setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
+        setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
     };
 
 
@@ -47,7 +47,7 @@ const Signup = () => {
                     <div className="bg-primary py-5 px-4 px-sm-5">
                         <form className="py-5">
                             <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Name" required="required" type='text' id='name' name='name' value={user.name} onChange={handleChange}/>
+                                <input type="text" className="form-control border-0 p-4" placeholder="Name" required="required"  id='name' name='name' value={user.name} onChange={handleChange}/>
                             </div>
                             {/* <div className="form-group">
                                 <input type="text" className="form-control border-0 p-4" placeholder="Username" required="required" />
