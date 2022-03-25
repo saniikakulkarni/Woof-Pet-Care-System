@@ -36,7 +36,7 @@ const Login = () => {
     <>
     <Navbar/>
     {/* <!-- Space Start --> */}
-    <div className="container-fluid bg-light pt-5">
+    <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>
     </div>
@@ -53,14 +53,11 @@ const Login = () => {
                             <div className="form-group">
                                 <input type="password" className="form-control border-0 p-4" placeholder="Password" required="required" id='password' name='password' value={user.password} onChange={handleChange}/>
                             </div>
-                            <div className="row">
-                                <div className="col-md-6 mb-10">
-                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit}>Login</button>
+                            
+                            <div>
+                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit} >Login</button>
                             </div>
-                            <div className="col-md-6 mb-10">
-                                <button className="btn btn-dark btn-block border-0 py-3" >Sign Up</button>
-                            </div>
-                            </div>
+                            
                         </form>
                     </div>
                 </div>
@@ -107,6 +104,10 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div className="container-fluid bg-light pt-3">
+        <div className="container py-5">
         </div>
     </div>
     <Footer/>

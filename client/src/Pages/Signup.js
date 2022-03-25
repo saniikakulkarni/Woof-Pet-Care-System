@@ -1,10 +1,17 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { setItem, getItem } from '../Helpers/LocalStorage'
+
+// components
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Notification from "../components/Notification"
+
+//styling
 import "../styles/style.css"
 
 const Signup = () => {
+    const navigate  = useNavigate()
     const [user, setUser] = useState({ name: '', email: '', age: '' , mobileNumber: '', password: '' });
     const handleChange = (e) => {
       const name = e.target.name;
@@ -27,6 +34,9 @@ const Signup = () => {
         if(data.user && data.token){
             console.log(data)
             Notification("Success", "Registered Successfully!!", "success")
+            navigate("/")
+            // setItem('token', data.token)
+            // setItem('id', data.id)
         }
         
         // console.log(data)
@@ -39,7 +49,7 @@ const Signup = () => {
     <Navbar/>
     {/* <!-- Space Start --> */}
     <div className="container-fluid bg-light pt-5">
-        <div className="container py-5">
+        <div className="container py-3">
         </div>
     </div>
     {/* <!-- Space End --> */}
@@ -123,7 +133,7 @@ const Signup = () => {
             </div>
         </div>
     </div>
-    <div className="container-fluid bg-light pt-5">
+    <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>
     </div>
