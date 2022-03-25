@@ -1,15 +1,18 @@
-import { useState, useEffect } from "react";
+import React from 'react';   
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom' 
+import Home from "./Pages/Home"
 import Login from "./Pages/Login"
 import Signup from "./Pages/Signup";
 
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
+
 // functions
-import { getTest } from "./functions/test";
+// import { getTest } from "./functions/test";
 
 function App() {
-	const [data, setData] = useState("Hello World!");
+	// const [data, setData] = useState("Hello World!");
 
 	// useEffect(() => {
 	// 	getTest()
@@ -18,10 +21,15 @@ function App() {
 	// }, []);
 
 	return (
-		<div className="app-container">
+		<div className="App">
 			<ReactNotifications />
-			{/* <Signup></Signup> */}
-			<Login/>
+			<Router>
+				<Routes>
+					<Route path="/" element={<Home/>}/>
+					<Route path="/login" element={<Login />}/>
+					<Route path="/signup" element={<Signup />}/>
+        		</Routes> 
+			</Router>
 		</div>
 	);
 }
