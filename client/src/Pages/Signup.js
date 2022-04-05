@@ -56,13 +56,6 @@ const Signup = () => {
   return (
     <>
     <Navbar/>
-    {/* <!-- Space Start --> */}
-    <div className="container-fluid bg-light pt-5">
-        <div className="container py-3">
-        </div>
-    </div>
-    {/* <!-- Space End --> */}
-
     {/* <!-- Login Start --> */}
     <div className="container-fluid">
         <div className="container">
