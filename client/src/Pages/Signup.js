@@ -34,13 +34,22 @@ const Signup = () => {
         if(data.user && data.token){
             console.log(data)
             Notification("Success", "Registered Successfully!!", "success")
+            setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
             navigate("/")
             // setItem('token', data.token)
             // setItem('id', data.id)
+            // dispatch({
+            //     type: SETUSER,
+            //     token: data.token,
+            //     id: data.body._id
+            //   })
+        }else{
+            Notification("Warning", "Could not login.", "danger")
+            setUser({ email: '', password: '' })
         }
         
         // console.log(data)
-        setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
+        
     };
 
 
