@@ -1,9 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+
+// components
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import Notification from "../components/Notification"
+
+import { useSelector, useDispatch } from 'react-redux'
 
 const Login = () => {
+  const navigate  = useNavigate()
   const [user, setUser] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
@@ -22,14 +29,18 @@ const Login = () => {
         },
         body: JSON.stringify(user)
     });
-    console.log(response.body)
     const data = await response.json()
     if(data.user && data.token){
         console.log(data)
-            Notification("Success", "Login Successful!", "success")
+        Notification("Success", "Login Successful!", "success")  
+        navigate("/")
+        setUser({ email: '', password: '' })
+    }else{
+        Notification("Warning", "Could not login.", "danger")
+        setUser({ email: '', password: '' })
     }
     //console.log(data)
-    setUser({ email: '', password: '' })
+    
     };
 
   return (
