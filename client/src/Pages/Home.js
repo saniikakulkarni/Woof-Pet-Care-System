@@ -2,24 +2,18 @@ import { useState } from 'react'
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import "../styles/style.css"
+import home from "../images/home.jpg"
 
 const Home = () => {
   return (
     <>
     <Navbar/>
-    {/* <!-- Space Start --> */}
-    <div className="container-fluid bg-light pt-5">
-        <div className="container py-5">
-        </div>
-    </div>
-    {/* <!-- Space End --> */}
-
     <div className="container-fluid p-0">
         <div id="header-carousel" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
                 
                 <div className="carousel-item active">
-                    <img className="w-100" src="img/home.jpg" alt="Image"/>
+                    <img className="w-100" src={home} alt="Image"/>
                     <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div className="p-3" style={{"max-width": "900px"}}>
                             <h1 className="display-3 text-white mb-3">Keep Your Pet Happy</h1>

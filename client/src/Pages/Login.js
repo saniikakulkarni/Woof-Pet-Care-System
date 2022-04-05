@@ -20,12 +20,6 @@ const Login = () => {
   return (
     <>
     <Navbar/>
-    {/* <!-- Space Start --> */}
-    <div className="container-fluid bg-light pt-5">
-        <div className="container py-5">
-        </div>
-    </div>
-    {/* <!-- Space End --> */}
     <div class="container-fluid">
         <div class="container">
             <div class="row align-items-center">
