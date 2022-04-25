@@ -1,8 +1,9 @@
 import React from 'react';   
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom' 
 import Home from "./Pages/Home"
-import Login from "./Pages/Login"
-import Signup from "./Pages/Signup";
+import Login from "./Pages/User/Login"
+import Signup from "./Pages/User/Signup";
+import About from "./Pages/About";
 
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
@@ -28,6 +29,7 @@ function App() {
 					<Route path="/" element={<Home/>}/>
 					<Route path="/login" element={<Login />}/>
 					<Route path="/signup" element={<Signup />}/>
+					<Route path="/about" element={<About />}/>
         		</Routes> 
 			</Router>
 		</div>

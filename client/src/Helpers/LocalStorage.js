@@ -3,7 +3,6 @@ const names = {
     id : 'woof-user-id'
 }
 
-
 let getItem = (name)=>{
     let item = localStorage.getItem(names[name])
     return item
