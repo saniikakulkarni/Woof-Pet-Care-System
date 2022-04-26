@@ -30,9 +30,10 @@ app.use(cors())
 const port = process.env.PORT || 8080;
 
 // routes
-const testRouter = require("./routes/test")
 const userRouter = require("./routes/user")
+const carerRouter = require("./routes/petcarer")
 app.use(userRouter);
+app.use(carerRouter);
 
 // listener
 const server = app.listen(port, () =>

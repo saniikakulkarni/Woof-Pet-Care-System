@@ -8,7 +8,7 @@ import Footer from "../../components/Footer"
 import Notification from "../../components/Notification"
 
 const Login = () => {
-    
+
     // If user alredaye logged in, navigate to home
     const navigate  = useNavigate()
     useEffect(() => {
@@ -55,6 +55,10 @@ const Login = () => {
   return (
     <>
     <Navbar/>
+    <div className="container-fluid bg-light pt-3">
+        <div className="container py-5">
+        </div>
+    </div>
     <div className="container-fluid">
         <div className="container">
             <div className="row align-items-center">

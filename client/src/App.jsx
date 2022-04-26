@@ -4,9 +4,11 @@ import Home from "./Pages/Home"
 import Login from "./Pages/User/Login"
 import Signup from "./Pages/User/Signup";
 import About from "./Pages/About";
+import Service from "./Pages/User/Service";
 
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+import Navigate from './Pages/Navigate';
 
 
 // functions
@@ -26,10 +28,12 @@ function App() {
 			<ReactNotifications />
 			<Router>
 				<Routes>
-					<Route path="/" element={<Home/>}/>
-					<Route path="/login" element={<Login />}/>
-					<Route path="/signup" element={<Signup />}/>
-					<Route path="/about" element={<About />}/>
+					<Route exact path="/" element={<Home/>}/>
+					<Route exact path="/login" element={<Login />}/>
+					<Route exact path="/signup" element={<Signup />}/>
+					<Route exact path="/about" element={<About />}/>
+					<Route exact path="/service" element={<Service />}/>
+					<Route exact path="/navigate" element={<Navigate />}/>
         		</Routes> 
 			</Router>
 		</div>
