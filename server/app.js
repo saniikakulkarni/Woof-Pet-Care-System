@@ -32,8 +32,10 @@ const port = process.env.PORT || 8080;
 // routes
 const userRouter = require("./routes/user")
 const carerRouter = require("./routes/petcarer")
+const bookingRouter = require("./routes/booking")
 app.use(userRouter);
 app.use(carerRouter);
+app.use(bookingRouter);
 
 // listener
 const server = app.listen(port, () =>

@@ -10,7 +10,7 @@ router.post('/booking/:id', auth,async (req,res) => {
     const booking = new Booking({
         ...req.body,
         userId: req.user._id,
-        bookingId: carerId
+        petCarerId: carerId
     })
 
     try{

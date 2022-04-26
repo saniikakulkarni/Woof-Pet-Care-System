@@ -72,15 +72,16 @@ router.post('/petcarers/logoutAll', carerAuth, async (req, res) => {
 
 // petcarer details
 
-router.get('/petcarers',auth, async (req,res) => {
+router.post('/petcarers',auth, async (req,res) => {
     try{
+        // coordinates = [req.body.lng, req.body.lat]
+        // console.log(req.body)
+        coordinates = ['12.8498481', '77.6544856']
         const petcarers = await PetCarer.find({})
-        console.log(petcarers)
         res.status(200).send(petcarers)
     } catch(e) {
         res.status(500).send(e)
     }
-    res.send(req.petcarer)
 })
 
 router.get('/petcarers/me',carerAuth, async (req,res) => {
