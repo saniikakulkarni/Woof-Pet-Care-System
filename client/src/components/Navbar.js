@@ -51,9 +51,14 @@ const Navbar = () => {
                     userToken ? (
                         <button onClick={handleLogout} className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Logout </button>
                     ) : ( 
-                        <Link to='/login' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Login</Link>
+                        <Link to='/ownerlogin' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Pet Owner Login</Link>
                     )}
-                
+                {
+                    userToken ? (
+                        <button onClick={handleLogout} className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Logout </button>
+                    ) : ( 
+                        <Link to='/carerlogin' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Pet Carer Login</Link>
+                    )}
             </div>
         </nav>
     </div>

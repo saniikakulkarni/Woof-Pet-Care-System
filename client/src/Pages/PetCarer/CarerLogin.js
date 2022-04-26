@@ -7,7 +7,7 @@ import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
 import Notification from "../../components/Notification"
 
-const Login = () => {
+const CarerLogin = () => {
     
     // If user alredaye logged in, navigate to home
     const navigate  = useNavigate()
@@ -133,4 +133,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default CarerLogin

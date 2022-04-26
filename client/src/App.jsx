@@ -1,8 +1,9 @@
 import React from 'react';   
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom' 
 import Home from "./Pages/Home"
-import Login from "./Pages/User/Login"
-import Signup from "./Pages/User/Signup";
+import OwnerLogin from "./Pages/PetOwner/OwnerLogin"
+import CarerLogin from "./Pages/PetCarer/CarerLogin"
+import Signup from "./Pages/PetOwner/Signup";
 import About from "./Pages/About";
 
 import { ReactNotifications } from 'react-notifications-component'
@@ -27,7 +28,8 @@ function App() {
 			<Router>
 				<Routes>
 					<Route path="/" element={<Home/>}/>
-					<Route path="/login" element={<Login />}/>
+					<Route path="/carerlogin" element={<CarerLogin />}/>
+					<Route path="/ownerlogin" element={<OwnerLogin />}/>
 					<Route path="/signup" element={<Signup />}/>
 					<Route path="/about" element={<About />}/>
         		</Routes> 
