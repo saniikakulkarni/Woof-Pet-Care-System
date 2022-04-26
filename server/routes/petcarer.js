@@ -5,9 +5,27 @@ const router = new express.Router()
 const carerAuth = require('../middleware/carerAuth')
 const auth = require('../middleware/auth')
 const multer = require('multer')
+const geocode = require('../helpers/Geocode')
+
+
+
+router.post('/petcarers/location', (req,res) => {
+    try {
+        geocode(req.body.address,(error,{latitude,longitude,location}={})=>{
+            if(error)
+                res.send({ error })
+            else
+                res.send({longitude , latitude})
+        })
+    } catch(e) {
+        res.send(e)
+    }
+})
 
 // petcarer authentication
+
 router.post('/petcarers/signup', async (req,res) => {
+    
     const petcarer = new PetCarer(req.body)
 
     try{
