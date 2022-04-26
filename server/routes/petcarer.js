@@ -7,7 +7,7 @@ const auth = require('../middleware/auth')
 const multer = require('multer')
 
 // petcarer authentication
-router.post('/petcarer/signup', async (req,res) => {
+router.post('/petcarers/signup', async (req,res) => {
     const petcarer = new PetCarer(req.body)
 
     try{

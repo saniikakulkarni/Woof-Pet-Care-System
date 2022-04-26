@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
+import axios from '../../axios'
 
 // components
 import Navbar from "../../components/Navbar"
@@ -9,44 +10,36 @@ import Notification from "../../components/Notification"
 
 const CarerLogin = () => {
     
-    // If user alredaye logged in, navigate to home
+    // If petcarer alredaye logged in, navigate to home
     const navigate  = useNavigate()
     useEffect(() => {
         if(localStorage.getItem('token')){
-            navigate("/")
+            navigate("/carer/home")
         }
     }, [])
   
 
-  const [user, setUser] = useState({ email: '', password: '' });
+  const [petcarer, setPetCarer] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setUser({ ...user, [name]: value });
+    setPetCarer({ ...petcarer, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://127.0.0.1:8080/users/login',{
-        method: "POST",
-        headers:{
-            Accept: "application/json",
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    });
-    const data = await response.json()
-    if(data.user && data.token){
-        console.log(data)
+    const response = await axios.post('/petcarers/login', petcarer);
+    const data = response.data
+    if(data.petcarer && data.token){
         Notification("Success", "Login Successful!", "success")  
         localStorage.setItem('token', data.token)
         localStorage.setItem('id', data.id)
-        navigate("/")
-        setUser({ email: '', password: '' })
+        localStorage.setItem('type', 'carer')
+        navigate("/carer/home")
     }else{
         Notification("Warning", "Could not login.", "danger")
-        setUser({ email: '', password: '' })
+        setPetCarer({ email: '', password: '' })
     }
     //console.log(data)
     
@@ -66,10 +59,10 @@ const CarerLogin = () => {
                     <div className="bg-primary py-5 px-4 px-sm-5">
                         <form className="py-5">
                             <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Email" required="required" id='email' name='email' value={user.email} onChange={handleChange}/>
+                                <input type="text" className="form-control border-0 p-4" placeholder="Email" required="required" id='email' name='email' value={petcarer.email} onChange={handleChange}/>
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-control border-0 p-4" placeholder="Password" required="required" id='password' name='password' value={user.password} onChange={handleChange}/>
+                                <input type="password" className="form-control border-0 p-4" placeholder="Password" required="required" id='password' name='password' value={petcarer.password} onChange={handleChange}/>
                             </div>
                             
                             <div>

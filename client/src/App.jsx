@@ -1,30 +1,25 @@
 import React from 'react';   
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom' 
-import Home from "./Pages/Home"
-import OwnerLogin from "./Pages/PetOwner/OwnerLogin"
-import CarerLogin from "./Pages/PetCarer/CarerLogin"
-import OwnerSignup from "./Pages/PetOwner/OwnerSignup"
-import CarerSignup from "./Pages/PetCarer/CarerSignup"
-import About from "./Pages/About";
-import Service from "./Pages/PetOwner/Service";
-
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+
+import Home from "./Pages/Home"
+import About from "./Pages/About";
 import Navigate from './Pages/Navigate';
 
+// Pet Owner pages
+import OwnerLogin from "./Pages/PetOwner/OwnerLogin"
+import OwnerSignup from "./Pages/PetOwner/OwnerSignup"
+import Service from "./Pages/PetOwner/Service";
 
-// functions
-// import { getTest } from "./functions/test";
+// Pet Carer pages
+import CarerSignup from "./Pages/PetCarer/CarerSignup"
+import CarerLogin from "./Pages/PetCarer/CarerLogin"
+import PetCarerHome from "./Pages/PetCarer/PetCarerHome"
+
 
 function App() {
-	// const [data, setData] = useState("Hello World!");
-
-	// useEffect(() => {
-	// 	getTest()
-	// 		.then((res) => setData(res.message))
-	// 		.catch((err) => console.log(err));
-	// }, []);
-
+	
 	return (
 		<div>
 			<ReactNotifications />
@@ -38,6 +33,8 @@ function App() {
 					<Route exact path="/about" element={<About />}/>
 					<Route exact path="/service" element={<Service />}/>
 					<Route exact path="/navigate" element={<Navigate />}/>
+					<Route exact path="/carer/home" element={<PetCarerHome/>}/>
+					
         		</Routes> 
 			</Router>
 		</div>

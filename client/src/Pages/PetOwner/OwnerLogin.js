@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
+import axios from '../../axios'
 
 // components
 import Navbar from "../../components/Navbar"
@@ -27,23 +28,15 @@ const OwnerLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://127.0.0.1:8080/users/login',{
-        method: "POST",
-        headers:{
-            Accept: "application/json",
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    });
-    const data = await response.json()
+    const response = await axios.post('/users/login', user);
+    const data = response.data
     if(data.user && data.token){
-        console.log(data)
         Notification("Success", "Login Successful!", "success")  
         localStorage.setItem('token', data.token)
-        localStorage.setItem('id', data.id)
+        localStorage.setItem('id', data._id)
+        localStorage.setItem('type', 'owner')
         navigate("/")
-        setUser({ email: '', password: '' })
-    }else{
+    } else {
         Notification("Warning", "Could not login.", "danger")
         setUser({ email: '', password: '' })
     }

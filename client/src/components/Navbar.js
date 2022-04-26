@@ -7,7 +7,6 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     const [userToken,setUserToken] = useState('')
-    const [userDetails,setUserDetails] = useState({})
     useEffect(() => {
         const token = localStorage.getItem('token')
         if(token){
@@ -17,10 +16,19 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         try{
-            await axios.post("/users/logout", {},{ headers: { Authorization: `Bearer ${userToken}` } })
+            const type = localStorage.getItem('type')
+            if(type==='owner') {
+                await axios.post("/users/logout", {},{ headers: { Authorization: `Bearer ${userToken}` } })
+            } else if( type==='carer') {
+                await axios.post("/petcarers/logout", {},{ headers: { Authorization: `Bearer ${userToken}` } })
+            }
             localStorage.removeItem('token')
             localStorage.removeItem('id')
-            navigate("/owner/login")
+            localStorage.removeItem('type')
+            if(type==='owner')
+                navigate("/owner/login")
+            else if(type==='carer')
+                navigate("/carer/login")
         } catch (error) {
             console.log(error)
         } 
@@ -43,7 +51,9 @@ const Navbar = () => {
                             <h1 className="m-0 display-5 text-capitalize"><span className="text-primary">Woof</span></h1>
                         </Link>
                         <div className="navbar-nav mr-auto py-0">
-                            <Link to="/service" className="nav-item nav-link">Services</Link>
+                            {
+                                userToken && <Link to="/service" className="nav-item nav-link">Services</Link>
+                            }
                             <Link to="/about" className="nav-item nav-link">About</Link>
                             <Link to="/contact" className="nav-item nav-link">Contact</Link>
                         </div>
