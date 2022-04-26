@@ -20,7 +20,7 @@ const Navbar = () => {
             await axios.post("/users/logout", {},{ headers: { Authorization: `Bearer ${userToken}` } })
             localStorage.removeItem('token')
             localStorage.removeItem('id')
-            navigate("/login")
+            navigate("/owner/login")
         } catch (error) {
             console.log(error)
         } 
