@@ -79,7 +79,7 @@ const OwnerLogin = () => {
                     </div>
                 </div>
                 <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                    <h1 className="display-4 mb-4">Login</h1>
+                    <h1 className="display-4 mb-4">Pet Owner Login</h1>
                     <p>Find a pet lover in your preferred location</p>
                     <div className="row py-2">
                         <div className="col-sm-6">

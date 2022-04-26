@@ -43,7 +43,6 @@ const Navbar = () => {
                             <h1 className="m-0 display-5 text-capitalize"><span className="text-primary">Woof</span></h1>
                         </Link>
                         <div className="navbar-nav mr-auto py-0">
-                            <Link to="/booking" className="nav-item nav-link">Booking</Link>
                             <Link to="/service" className="nav-item nav-link">Services</Link>
                             <Link to="/about" className="nav-item nav-link">About</Link>
                             <Link to="/contact" className="nav-item nav-link">Contact</Link>
