@@ -5,6 +5,7 @@ import axios from '../../axios'
 
 // components
 import Notification from "../../components/Notification"
+import Navbar from "../../components/Navbar"
 
 const OwnerLogin = () => {
     // If user alredaye logged in, navigate to home
@@ -44,6 +45,7 @@ const OwnerLogin = () => {
 
   return (
     <>
+    <Navbar/>
     <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>

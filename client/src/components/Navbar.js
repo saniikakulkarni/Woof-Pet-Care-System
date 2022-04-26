@@ -1,16 +1,16 @@
 import React, { useState,useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../axios'
-import Dropdown from 'react-bootstrap/Dropdown'
+
 const Navbar = () => {
 
     const navigate = useNavigate()
 
-    const [userToken,setUserToken] = useState('')
+    const [token,settoken] = useState('')
     useEffect(() => {
         const token = localStorage.getItem('token')
         if(token){
-            setUserToken(token)
+            settoken(token)
         }
     },[])
 
@@ -18,9 +18,9 @@ const Navbar = () => {
         try{
             const type = localStorage.getItem('type')
             if(type==='owner') {
-                await axios.post("/users/logout", {},{ headers: { Authorization: `Bearer ${userToken}` } })
+                await axios.post("/users/logout", {},{ headers: { Authorization: `Bearer ${token}` } })
             } else if( type==='carer') {
-                await axios.post("/petcarers/logout", {},{ headers: { Authorization: `Bearer ${userToken}` } })
+                await axios.post("/petcarers/logout", {},{ headers: { Authorization: `Bearer ${token}` } })
             }
             localStorage.removeItem('token')
             localStorage.removeItem('id')
@@ -39,9 +39,9 @@ const Navbar = () => {
         {/* <!-- Navbar Start --> */}
         <div className="container-fluid p-0">
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
-                <a href="" className="navbar-brand d-block d-lg-none">
+                <Link to="/" className="navbar-brand d-block d-lg-none">
                     <h1 className="m-0 display-5 text-capitalize font-italic text-white"><span className="text-primary">Woof</span></h1>
-                </a>
+                </Link>
                 <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -52,14 +52,14 @@ const Navbar = () => {
                         </Link>
                         <div className="navbar-nav mr-auto py-0">
                             {
-                                userToken && <Link to="/service" className="nav-item nav-link">Services</Link>
+                                token && <Link to="/service" className="nav-item nav-link">Services</Link>
                             }
                             <Link to="/about" className="nav-item nav-link">About</Link>
                             <Link to="/contact" className="nav-item nav-link">Contact</Link>
                         </div>
                     </div>
                     {
-                        userToken ? (
+                        token ? (
                             <button onClick={handleLogout} className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Logout </button>
                         ) : ( 
                             <>

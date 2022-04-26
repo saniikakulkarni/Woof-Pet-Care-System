@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import useGeoLocation from '../hooks/useGeoLocation'
 
 const Navigate = () => {

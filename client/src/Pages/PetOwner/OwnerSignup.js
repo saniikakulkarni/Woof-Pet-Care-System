@@ -4,6 +4,7 @@ import axios from '../../axios'
 
 // components
 import Notification from "../../components/Notification"
+import Navbar from "../../components/Navbar"
 
 //styling
 import "../../styles/style.css"
@@ -48,6 +49,7 @@ const OwnerSignup = () => {
 
   return (
     <>
+    <Navbar/>
     <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>
@@ -93,7 +95,7 @@ const OwnerSignup = () => {
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <span className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Boarding</h5>
                                 </div>
                                 <p>Choose a place and a pet lover for ypur pet from the verified profiles.</p>
@@ -102,7 +104,7 @@ const OwnerSignup = () => {
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <span className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Feeding</h5>
                                 </div>
                                 <p>Get the best quality pet food.</p>
@@ -111,7 +113,7 @@ const OwnerSignup = () => {
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <span className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Grooming</h5>
                                 </div>
                                 <p className="m-0">Get your pet a spa.</p>
@@ -120,7 +122,7 @@ const OwnerSignup = () => {
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <span className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Tracking</h5>
                                 </div>
                                 <p className="m-0">Track your pet</p>

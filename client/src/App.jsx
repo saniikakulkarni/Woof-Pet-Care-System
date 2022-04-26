@@ -3,7 +3,6 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
-import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Home from "./Pages/Home"
 import About from "./Pages/About";
@@ -24,7 +23,6 @@ function App() {
 	
 	return (
 		<div>
-			<Navbar/>
 			<ReactNotifications />
 			<Router>
 				<Routes>
@@ -37,10 +35,9 @@ function App() {
 					<Route exact path="/service" element={<Service />}/>
 					<Route exact path="/navigate" element={<Navigate />}/>
 					<Route exact path="/carer/home" element={<PetCarerHome/>}/>
-					
         		</Routes> 
+				<Footer/>
 			</Router>
-			<Footer/>
 		</div>
 	);
 }
