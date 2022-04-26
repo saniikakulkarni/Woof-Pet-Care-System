@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
 import "../styles/style.css" 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -18,7 +16,6 @@ const Home = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="container-fluid p-0">
         <div id="header-carousel" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
@@ -44,7 +41,6 @@ const Home = () => {
             </div>
         </div>
     </div>
-    <Footer/>
     </>
   )
 }

@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import axios from '../../axios'
 
 // components
-import Navbar from "../../components/Navbar"
-import Footer from "../../components/Footer"
 import Notification from "../../components/Notification"
 
 const OwnerLogin = () => {
@@ -46,7 +44,6 @@ const OwnerLogin = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>
@@ -120,7 +117,6 @@ const OwnerLogin = () => {
         <div className="container py-5">
         </div>
     </div>
-    <Footer/>
     </>
   )
 }

@@ -3,6 +3,8 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 import Home from "./Pages/Home"
 import About from "./Pages/About";
 import Navigate from './Pages/Navigate';
@@ -22,6 +24,7 @@ function App() {
 	
 	return (
 		<div>
+			<Navbar/>
 			<ReactNotifications />
 			<Router>
 				<Routes>
@@ -37,6 +40,7 @@ function App() {
 					
         		</Routes> 
 			</Router>
+			<Footer/>
 		</div>
 	);
 }

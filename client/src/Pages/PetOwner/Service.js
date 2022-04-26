@@ -8,7 +8,6 @@ import { Link} from 'react-router-dom';
 const Service = () => {
   return (
     <>
-    <Navbar/>
     <div className="container-fluid bg-light pt-5">
         <div className="container py-5">
             <div className="d-flex flex-column text-center mb-5">
@@ -33,7 +32,6 @@ const Service = () => {
             </div>
         </div>
     </div>
-    <Footer/>
     </>
   )
 }
