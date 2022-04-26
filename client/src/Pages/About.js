@@ -3,8 +3,6 @@ import about_img1 from '../images/about-1.jpg'
 import about_img2 from '../images/about-2.jpg'
 import about_img3 from '../images/about-3.jpg'
 import about_img4 from '../images/about-4.jpg'
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
 
 const About = () => {
   return (

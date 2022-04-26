@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // components
-import Navbar from "../../components/Navbar"
-import Footer from "../../components/Footer"
 import Notification from "../../components/Notification"
 
 //styling

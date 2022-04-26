@@ -7,7 +7,6 @@ import homebg from "../static/home.jpg"
 const Home = () => {
   return (
     <>
-    
     <div className="container-fluid p-0">
         <div id="header-carousel" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
