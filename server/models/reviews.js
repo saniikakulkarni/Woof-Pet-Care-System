@@ -3,12 +3,14 @@ const validator = require('validator')
 
 const reviewSchema = new mongoose.Schema({
     userId:{
-       type: mongoose.ObjectId,
+       type: mongoose.Schema.Types.ObjectId,
        required: true,
+       ref: 'User'
     },
     petCarerId:{
-       type: mongoose.ObjectId,
+       type: mongoose.Schema.Types.ObjectId,
        required: true,
+       ref: 'PetCarer'
     },
     rating:{
         type: Number,

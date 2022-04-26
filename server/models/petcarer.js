@@ -86,11 +86,17 @@ const petCarerSchema = new mongoose.Schema({
     timestamps:true
 })
 
-// petCarerSchema.virtual('tasks', {
-//     ref: 'Task',
-//     localField: '_id',
-//     foreignField: 'owner'
-// })
+petCarerSchema.virtual('reviews', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'petCarerId'
+})
+
+petCarerSchema.virtual('bookings', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'petCarerId'
+})
 
 petCarerSchema.methods.toJSON = function(){
     const petcarer = this

@@ -1,14 +1,16 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const reviewSchema = new mongoose.Schema({
+const bookingSchema = new mongoose.Schema({
     userId:{
-       type: mongoose.ObjectId,
+       type: mongoose.Schema.Types.ObjectId,
        required: true,
+       ref: 'User'
     },
     petCarerId:{
-       type: mongoose.ObjectId,
+       type: mongoose.Schema.Types.ObjectId,
        required: true,
+       ref: 'PetCarer'
     },
     startDate:{
         type: Date,
@@ -31,18 +33,6 @@ const reviewSchema = new mongoose.Schema({
     timestamps:true
 })
 
-// reviewSchema.virtual('tasks', {
-//     ref: 'Task',
-//     localField: '_id',
-//     foreignField: 'owner'
-// })
+const Booking = new mongoose.model('Booking', bookingSchema)
 
-// reviewSchema.pre('remove', async function(next){
-//     const user = this
-//     await Task.deleteMany({ owner:user._id })
-//     next()
-// })
-
-const Review = new mongoose.model('Review', reviewSchema)
-
-module.exports = Review
+module.exports = Booking
