@@ -23,12 +23,12 @@ mongoose
 // app.use(json());
 // app.use(urlencoded({ extended: false }));
 // app.use(cors({ origin: true, credentials: true }));
+app.use(express.json())
+app.use(cors())
 
 // port
 const port = process.env.PORT || 8080;
 
-app.use(express.json())
-app.use(cors())
 // routes
 const testRouter = require("./routes/test")
 const userRouter = require("./routes/user")

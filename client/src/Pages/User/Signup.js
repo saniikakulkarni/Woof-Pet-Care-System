@@ -1,18 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { setItem, getItem } from '../Helpers/LocalStorage'
 
 // components
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import Notification from "../components/Notification"
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
+import Notification from "../../components/Notification"
 
 //styling
-import "../styles/style.css"
+import "../../styles/style.css"
 
 const Signup = () => {
+
+    // If user alredaye logged in, navigate to home
     const navigate  = useNavigate()
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+            navigate("/")
+        }
+    }, [])
+
     const [user, setUser] = useState({ name: '', email: '', age: '' , mobileNumber: '', password: '' });
+    
     const handleChange = (e) => {
       const name = e.target.name;
       const value = e.target.value;
@@ -35,20 +43,13 @@ const Signup = () => {
             console.log(data)
             Notification("Success", "Registered Successfully!!", "success")
             setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('id', data.id)
             navigate("/")
-            // setItem('token', data.token)
-            // setItem('id', data.id)
-            // dispatch({
-            //     type: SETUSER,
-            //     token: data.token,
-            //     id: data.body._id
-            //   })
-        }else{
+        } else {
             Notification("Warning", "Could not login.", "danger")
             setUser({ email: '', password: '' })
         }
-        
-        // console.log(data)
         
     };
 

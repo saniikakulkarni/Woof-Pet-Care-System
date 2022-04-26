@@ -1,7 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
+import React, { useState,useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import axios from '../axios'
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
+    const [userToken,setUserToken] = useState('')
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if(token){
+            setUserToken(token)
+        }
+    }, [])
+
+    const handleLogout = async () => {
+        try{
+            console.log(userToken)
+            const res = await axios.post("/users/logout", { headers: { 'Authorization': `Bearer ${userToken}` } })
+            console.log(res)
+            navigate("/login")
+        } catch (error) {
+            console.log(error)
+        } 
+    }
+
   return (
     <>
     {/* <!-- Navbar Start --> */}
@@ -15,18 +37,23 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                <Link to="/" className="navbar-brand d-none d-lg-block">
-                    <h1 className="m-0 display-5 text-capitalize"><span className="text-primary">Woof</span></h1>
-                </Link>
+                    <Link to="/" className="navbar-brand d-none d-lg-block">
+                        <h1 className="m-0 display-5 text-capitalize"><span className="text-primary">Woof</span></h1>
+                    </Link>
                     <div className="navbar-nav mr-auto py-0">
-                        <a href="booking.html" className="nav-item nav-link active">Booking</a>
-                        <a href="service.html" className="nav-item nav-link">Service</a>
-                        <a href="about.html" className="nav-item nav-link">About</a>
-                        <a href="contact.html" className="nav-item nav-link">Contact</a>
+                        <Link to="/booking" className="nav-item nav-link">Booking</Link>
+                        <Link to="/service" className="nav-item nav-link">Find Pet Carer</Link>
+                        <Link to="/about" className="nav-item nav-link">About</Link>
+                        <Link to="/contact" className="nav-item nav-link">Contact</Link>
                     </div>
                 </div>
-                <Link to='/signup' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Sign Up</Link>
-                <Link to='/login' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Login</Link>
+                {
+                    userToken ? (
+                        <button onClick={handleLogout} className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Logout </button>
+                    ) : ( 
+                        <Link to='/login' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Login</Link>
+                    )}
+                
             </div>
         </nav>
     </div>

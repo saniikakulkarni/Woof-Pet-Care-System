@@ -1,16 +1,23 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 // components
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import Notification from "../components/Notification"
-
-import { useSelector, useDispatch } from 'react-redux'
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
+import Notification from "../../components/Notification"
 
 const Login = () => {
-  const navigate  = useNavigate()
+    
+    // If user alredaye logged in, navigate to home
+    const navigate  = useNavigate()
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+            navigate("/")
+        }
+    }, [])
+  
+
   const [user, setUser] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
@@ -33,6 +40,8 @@ const Login = () => {
     if(data.user && data.token){
         console.log(data)
         Notification("Success", "Login Successful!", "success")  
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('id', data.id)
         navigate("/")
         setUser({ email: '', password: '' })
     }else{
