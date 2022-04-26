@@ -3,7 +3,8 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 import Home from "./Pages/Home"
 import OwnerLogin from "./Pages/PetOwner/OwnerLogin"
 import CarerLogin from "./Pages/PetCarer/CarerLogin"
-import Signup from "./Pages/PetOwner/Signup";
+import OwnerSignup from "./Pages/PetOwner/OwnerSignup"
+import CarerSignup from "./Pages/PetCarer/CarerSignup"
 import About from "./Pages/About";
 import Service from "./Pages/PetOwner/Service";
 
@@ -32,7 +33,8 @@ function App() {
 					<Route exact path="/" element={<Home/>}/>
 					<Route exact path="/carer/login" element={<CarerLogin />}/>
 					<Route exact path="/owner/login" element={<OwnerLogin />}/>
-					<Route exact path="/signup" element={<Signup />}/>
+					<Route exact path="/carer/signup" element={<CarerSignup />}/>
+					<Route exact path="/owner/signup" element={<OwnerSignup />}/>
 					<Route exact path="/about" element={<About />}/>
 					<Route exact path="/service" element={<Service />}/>
 					<Route exact path="/navigate" element={<Navigate />}/>
