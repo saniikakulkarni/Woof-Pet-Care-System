@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../models/user')
+const PetCarer = require('../models/petcarer')
 const sharp  = require('sharp')
 const router = new express.Router()
 const auth = require('../middleware/auth')
@@ -39,12 +40,12 @@ router.post('/users/logout',auth, async(req,res) => {
             return token.token !== req.token
         })
         await req.user.save()
-
         res.send()
     } catch(e){
         res.status(500).send()
     }
 })
+
 
 router.post('/users/logoutAll', auth, async (req, res) => {
     try{

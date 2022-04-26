@@ -1,20 +1,20 @@
 const jwt = require('jsonwebtoken')
-const User = require('../models/user')
+const PetCarer = require('../models/petcarer')
 
-const auth = async (req,res,next) => {
+const carerAuth = async (req,res,next) => {
     try{
         // const token = req.header('Authorization').replace('Bearer ','')
         const authHeader = req.headers['authorization']
         const token = authHeader.split(' ')[1]
-        const decoded = jwt.verify(token, "thisismynewcourse")
-        const user = await User.findOne({ _id: decoded._id, 'tokens.token' : token })
+        const decoded = jwt.verify(token, "petcarersecret")
+        const petcarer = await PetCarer.findOne({ _id: decoded._id, 'tokens.token' : token })
 
-        if(!user){
+        if(!petcarer){
             throw new Error()
         }
 
         req.token = token
-        req.user = user
+        req.petcarer = petcarer
         next()
 
     } catch(e) {
@@ -22,4 +22,4 @@ const auth = async (req,res,next) => {
     }
 }
 
-module.exports = auth
+module.exports = carerAuth
