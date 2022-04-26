@@ -5,7 +5,7 @@ import OwnerLogin from "./Pages/PetOwner/OwnerLogin"
 import CarerLogin from "./Pages/PetCarer/CarerLogin"
 import Signup from "./Pages/PetOwner/Signup";
 import About from "./Pages/About";
-import Service from "./Pages/User/Service";
+import Service from "./Pages/PetOwner/Service";
 
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
@@ -29,12 +29,11 @@ function App() {
 			<ReactNotifications />
 			<Router>
 				<Routes>
-					<Route path="/" element={<Home/>}/>
-					<Route path="/carer/login" element={<CarerLogin />}/>
-					<Route path="/owner/login" element={<OwnerLogin />}/>
-					<Route path="/signup" element={<Signup />}/>
-					<Route path="/about" element={<About />}/>
 					<Route exact path="/" element={<Home/>}/>
+					<Route exact path="/carer/login" element={<CarerLogin />}/>
+					<Route exact path="/owner/login" element={<OwnerLogin />}/>
+					<Route exact path="/signup" element={<Signup />}/>
+					<Route exact path="/about" element={<About />}/>
 					<Route exact path="/service" element={<Service />}/>
 					<Route exact path="/navigate" element={<Navigate />}/>
         		</Routes> 
