@@ -7,6 +7,8 @@ import OwnerSignup from "./Pages/PetOwner/OwnerSignup"
 import CarerSignup from "./Pages/PetCarer/CarerSignup"
 import About from "./Pages/About";
 import Service from "./Pages/PetOwner/Service";
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
@@ -27,6 +29,7 @@ function App() {
 
 	return (
 		<div>
+			<Navbar/>
 			<ReactNotifications />
 			<Router>
 				<Routes>
@@ -40,6 +43,7 @@ function App() {
 					<Route exact path="/navigate" element={<Navigate />}/>
         		</Routes> 
 			</Router>
+			<Footer/>
 		</div>
 	);
 }

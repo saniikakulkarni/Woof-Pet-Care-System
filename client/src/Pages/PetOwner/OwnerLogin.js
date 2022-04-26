@@ -53,7 +53,6 @@ const OwnerLogin = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>
@@ -127,7 +126,6 @@ const OwnerLogin = () => {
         <div className="container py-5">
         </div>
     </div>
-    <Footer/>
     </>
   )
 }

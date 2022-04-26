@@ -9,7 +9,6 @@ import Footer from "../components/Footer"
 const About = () => {
   return (
       <>
-      <Navbar/>
     <div className="container py-5">
         <div className="row py-5">
             <div className="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
@@ -86,7 +85,6 @@ const About = () => {
             </div>
         </div>
     </div>
-    <Footer/>
     </>
   )
 }

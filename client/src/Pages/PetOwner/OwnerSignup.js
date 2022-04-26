@@ -56,7 +56,6 @@ const OwnerSignup = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="container-fluid bg-light pt-3">
         <div className="container py-5">
         </div>
@@ -145,7 +144,6 @@ const OwnerSignup = () => {
         </div>
     </div>
     {/* <!-- Booking Start --> */}
-    <Footer/>
     </>
   )
 }
