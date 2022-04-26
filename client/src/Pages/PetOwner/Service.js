@@ -13,7 +13,7 @@ const Service = () => {
                 <h1 className="display-4 m-0"><span className="text-primary">Premium</span> Pet Services</h1>
             </div>
             <div className="row pb-3">
-                <Link to="/" className="col-md-6 mb-4 nav-link"> 
+                <Link to="/owner/displaycarer" className="col-md-6 mb-4"> 
                     <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
                         <span className="flaticon-house display-3 font-weight-normal text-secondary mb-3"></span>
                         <h3 className="mb-3">Pet Boarding</h3>
