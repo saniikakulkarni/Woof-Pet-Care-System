@@ -5,7 +5,7 @@ import OwnerLogin from "./Pages/PetOwner/OwnerLogin"
 import CarerLogin from "./Pages/PetCarer/CarerLogin"
 import Signup from "./Pages/PetOwner/Signup";
 import About from "./Pages/About";
-import Service from "./Pages/User/Service";
+import Service from "./Pages/PetOwner/Service";
 
 import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
