@@ -47,11 +47,7 @@ const OwnerLogin = () => {
   return (
     <>
     <Navbar/>
-    <div className="container-fluid bg-light pt-3">
-        <div className="container py-5">
-        </div>
-    </div>
-    <div className="container-fluid">
+    <div className="container-fluid mt-5 mb-5">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5">
@@ -73,12 +69,14 @@ const OwnerLogin = () => {
                 </div>
                 <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
                     <h1 className="display-4 mb-4">Pet Owner Login</h1>
+                    <h4 className="text-secondary mb-3">Going for a vacation?</h4>
+                    <h1 className="display-4 mb-4">Book For <span className="text-primary">Your Pet</span></h1>
                     <p>Find a pet lover in your preferred location</p>
                     <div className="row py-2">
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <span className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Boarding</h5>
                                 </div>
                                 <p>Choose a place and a pet lover for ypur pet from the verified profiles.</p>
@@ -87,25 +85,7 @@ const OwnerLogin = () => {
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 className="text-truncate m-0">Pet Feeding</h5>
-                                </div>
-                                <p>Get the best quality pet food.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 className="text-truncate m-0">Pet Grooming</h5>
-                                </div>
-                                <p className="m-0">Get your pet a spa.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                    <span className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Tracking</h5>
                                 </div>
                                 <p className="m-0">Track your pet</p>
@@ -114,10 +94,6 @@ const OwnerLogin = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div className="container-fluid bg-light pt-3">
-        <div className="container py-5">
         </div>
     </div>
     </>

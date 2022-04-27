@@ -50,23 +50,18 @@ const OwnerSignup = () => {
   return (
     <>
     <Navbar/>
-    <div className="container-fluid bg-light pt-3">
-        <div className="container py-5">
-        </div>
-    </div>
-    {/* <!-- Login Start --> */}
     <div className="container-fluid">
-        <div className="container">
+        <div className="container mt-5 mb-5">
             <div className="row align-items-center">
                 <div className="col-lg-5">
                     <div className="bg-primary py-5 px-4 px-sm-5">
                         <form className="py-5">
                             <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Name" required="required"  id='name' name='name' value={user.name} onChange={handleChange}/>
+                                <input type="text" className="form-control border-0 p-4" placeholder="First Name" required="required"  id='firstName' name='firstName' value={user.firstName} onChange={handleChange}/>
                             </div>
-                            {/* <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Username" required="required" />
-                            </div> */}
+                            <div className="form-group">
+                                <input type="text" className="form-control border-0 p-4" placeholder="Last Name" required="required"  id='lastName' name='lastName' value={user.lastName} onChange={handleChange}/>
+                            </div>
                             <div className="form-group">
                                 <input type="email" className="form-control border-0 p-4" placeholder="Email" required="required" id='email' name='email' value={user.email} onChange={handleChange}/>
                             </div>
@@ -78,6 +73,21 @@ const OwnerSignup = () => {
                             </div>
                             <div className="form-group">
                                 <input className="form-control border-0 p-4" placeholder="Mobile Number" required="required" type='Number' id='mobileNumber' name='mobileNumber' value={user.mobileNumber} onChange={handleChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input className="form-control border-0 p-4" placeholder="Address" required="required" type='text' id='address' name='address' value={user.address} onChange={handleChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Name" required="required"  id='petName' name='petName' value={user.petName} onChange={handleChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Breed" required="required"  id='petBreed' name='petBreed' value={user.petBreed} onChange={handleChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Likes" required="required"  id='petLikes' name='petLikes' value={user.petLikes} onChange={handleChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Dislikes" required="required"  id='petDislikes' name='petDislikes' value={user.petDislikes} onChange={handleChange}/>
                             </div>
                             <div>
                                 <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit} >Sign Up</button>
@@ -104,24 +114,6 @@ const OwnerSignup = () => {
                         <div className="col-sm-6">
                             <div className="d-flex flex-column">
                                 <div className="d-flex align-items-center mb-2">
-                                    <span className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></span>
-                                    <h5 className="text-truncate m-0">Pet Feeding</h5>
-                                </div>
-                                <p>Get the best quality pet food.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <span className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></span>
-                                    <h5 className="text-truncate m-0">Pet Grooming</h5>
-                                </div>
-                                <p className="m-0">Get your pet a spa.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
                                     <span className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></span>
                                     <h5 className="text-truncate m-0">Pet Tracking</h5>
                                 </div>
@@ -133,11 +125,6 @@ const OwnerSignup = () => {
             </div>
         </div>
     </div>
-    <div className="container-fluid bg-light pt-3">
-        <div className="container py-5">
-        </div>
-    </div>
-    {/* <!-- Booking Start --> */}
     </>
   )
 }

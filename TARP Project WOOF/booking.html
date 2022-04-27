@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+    
+</style>
 <head>
     <meta charset="utf-8">
     <title>Woof | Profile</title>
@@ -27,155 +29,91 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid">
-        <div class="row py-3 px-lg-5">
-            <div class="col-lg-4">
-                <a href="" class="navbar-brand d-none d-lg-block">
-                    <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Woof</span></h1>
-                </a>
-            </div>
-    
-        </div>
-    </div>
-    <!-- Topbar End -->
-
     <!-- Navbar Start -->
-    <div class="container-fluid p-0">
+   
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
-            <a href="" class="navbar-brand d-block d-lg-none">
-                <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">Safety</span>First</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.html" class="nav-item nav-link ">Home</a>
-                        <a href="booking.html" class="nav-item nav-link active">Booking</a>
+                        <a href="index.html" class="navbar-brand d-none d-sm-block nav-item nav-link">
+                            <h2 class="m-0 display-0"><span class="text-primary">Woof</span></h2>
+                        </a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
-                <a href="" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Login</a>&nbsp
-                <a href="signup.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Sign Up</a>
+                <a href="profilesettings.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Profile Settings</a>&nbsp;
+            <a href="booking.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Book</a>&nbsp;
+            <a href="history.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Booking History</a>&nbsp;
+            <a href="index.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Logout</a>&nbsp;
             </div>
         </nav>
-    </div>
     <!-- Navbar End -->
 
 
-    <!-- Services Start -->
+    <!-- Space Start -->
     <div class="container-fluid bg-light pt-5">
         <div class="container py-5">
-            <div class="row pb-3">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
-                        <h3 class="mb-3">Pet Boarding</h3>
-                        <p>Find a place for your pet</p>
-                        <a class="text-uppercase font-weight-bold" href="">Read More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
-                        <h3 class="mb-3">Pet Feeding</h3>
-                        <p>Choose a dish for your pet and get discount</p>
-                        <a class="text-uppercase font-weight-bold" href="">Read More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
-                        <h3 class="mb-3">Pet Grooming</h3>
-                        <p>Get your pet a spa</p>
-                        <a class="text-uppercase font-weight-bold" href="">Read More</a>
-                    </div>
-                </div>
-            </div>
+            <h1 style="text-align: center">Book the service</h1>
         </div>
     </div>
-    <!-- Services End -->
-
-
-    <!-- Booking Start -->
+    <!-- Space End -->
+    
+    <!-- Login Start -->
     <div class="container-fluid">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
+            
+            <div class="">
+                <div class="">
                     <div class="bg-primary py-5 px-4 px-sm-5">
                         <form class="py-5">
                             <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                                <input type="text" class="form-control border-0 p-4" placeholder="First Name" required="required" />
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                                <input type="text" class="form-control border-0 p-4" placeholder="Last Name" required="required" />
                             </div>
                             <div class="form-group">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control border-0 p-4 datetimepicker-input" placeholder="Reservation Date" data-target="#date" data-toggle="datetimepicker"/>
-                                </div>
+                                <input type="email" class="form-control border-0 p-4" placeholder="Email" required="required" />
                             </div>
                             <div class="form-group">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" class="form-control border-0 p-4 datetimepicker-input" placeholder="Reservation Time" data-target="#time" data-toggle="datetimepicker"/>
-                                </div>
+                                <input type="number" class="form-control border-0 p-4" placeholder="Phone number" required="required" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Location" required="required" />
+                                <input type="number" placeholder="Age" class="form-control border-0 p-4" required="required" />
                             </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 p-4" placeholder="Country" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 p-4" placeholder="State" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 p-4" placeholder="City" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 p-4" placeholder="Address" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <p style="color: white;">Start date: </p>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control border-0 p-4" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <p style="color: white;">End date: </p>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control border-0 p-4" required="required" />
+                            </div>
+                            
                             <div>
-                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Find</button>
+                                <button class="btn btn-dark btn-block border-0 py-3">Book</button>
                             </div>
+                    
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                    <h4 class="text-secondary mb-3">Going for a vacation?</h4>
-                    <h1 class="display-4 mb-4">Book For <span class="text-primary">Your Pet</span></h1>
-                    <p>Find a pet lover in your preferred location</p>
-                    <div class="row py-2">
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Boarding</h5>
-                                </div>
-                                <p>Choose a place and a pet lover for ypur pet from the verified profiles.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Feeding</h5>
-                                </div>
-                                <p>Get the best quality pet food.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Grooming</h5>
-                                </div>
-                                <p class="m-0">Get your pet a spa.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Tracking</h5>
-                                </div>
-                                <p class="m-0">Track your pet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -207,30 +145,6 @@
                             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-primary mb-4">Popular Links</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Team</a>
-                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-primary mb-4">Newsletter</h5>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0" placeholder="Your Name" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0" placeholder="Your Email" required="required" />
-                            </div>
-                            <div>
-                                <button class="btn btn-lg btn-primary btn-block border-0" type="submit">Submit Now</button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -242,22 +156,7 @@
                     &copy; <a class="text-white font-weight-bold" href="#">Woof2022</a>
                 </p>
             </div>
-            <div class="col-md-6 text-center text-md-right">
-                <ul class="nav d-inline-flex">
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Terms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Help</a>
-                    </li>
-                </ul>
-            </div>
+            
         </div>
     </div>
     <!-- Footer End -->
