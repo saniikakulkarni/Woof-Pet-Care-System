@@ -19,13 +19,8 @@ const OwnerProfile = () => {
                             <form>
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <p>First Name</p>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <p>Last Name</p>
-                                            </div>
+                                        <div class="form-group">
+                                           <p>Name</p>
                                         </div>
                                         <div class="form-group">
                                            <p>Email</p>

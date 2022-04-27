@@ -64,10 +64,7 @@ const CarerSignup = () => {
                     <div className="bg-primary py-5 px-4 px-sm-5">
                         <form className="py-5">
                             <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="First Name" required="required"  id='firstName' name='firstName' value={petcarer.firstName} onChange={handleChange}/>
-                            </div>
-                            <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Last Name" required="required"  id='lastName' name='lastName' value={petcarer.lastName} onChange={handleChange}/>
+                                <input type="text" className="form-control border-0 p-4" placeholder="Name" required="required"  id='name' name='name' value={petcarer.name} onChange={handleChange}/>
                             </div>
                             <div className="form-group">
                                 <input type="email" className="form-control border-0 p-4" placeholder="Email" required="required" id='email' name='email' value={petcarer.email} onChange={handleChange}/>

@@ -57,27 +57,6 @@ const Booking = () => {
     return (
         <>
             <Navbar/>
-            <h1>Book Pet Carer</h1>
-            <div className='container card'>
-                Name: {carerDetails.name}<br/>
-                Email: {carerDetails.email} <br />       
-                mobile number: {carerDetails.mobileNumber} <br />
-                Age: {carerDetails.age} <br /> 
-                Address: {carerDetails.address} <br />      
-                Cost Per day: {carerDetails.cost} <br />     
-                Experience :{carerDetails.experience} years <br /> 
-                <form action="">
-                    Start date:
-                    <input type="date" name="startDate" id="startDate" value={bookingDetails.startDate} 
-                    min={bookingDetails.startDate} onChange={handleChange}/><br/>
-                    End date:
-                    <input type="date" name="endDate" id="endDate" value={bookingDetails.endDate} 
-                    min={bookingDetails.startDate} onChange={handleChange}/><br/>
-                    <div>Total cost: {totalCost}</div>
-                    <button onClick={handleBooking}>Confirm Booking</button>
-                </form> 
-            </div>
-            
             <h1 className="text-center">Book Pet Carer</h1>
                 <div class="card border-radius col-md-10 col-xl-5 m-auto mt-5">
                     <div class="card-body">
@@ -85,12 +64,7 @@ const Booking = () => {
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <p>First Name : {carerDetails.name}</p>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <p>Last Name</p>
-                                        </div>
+                                        <p>Name : {carerDetails.name}</p>
                                     </div>
                                     <div class="form-group">
                                         <p>Email : {carerDetails.email}</p>
@@ -109,6 +83,9 @@ const Booking = () => {
                                     </div>
                                     <div class="form-group">
                                         <p>Cost : {carerDetails.cost}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Total Cost : {totalCost}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">

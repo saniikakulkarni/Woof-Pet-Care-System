@@ -22,17 +22,13 @@ const OwnerProfileEdit = () => {
                                             <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputFirstName">First name</label>
-                                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputLastName">Last name</label>
-                                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name"/>
-                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail4">Phone Number</label>
+                                    <label for="name">Phone Number</label>
+                                    <input type="phonenumber" class="form-control" id="name" placeholder="Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phonenumber">Phone Number</label>
                                     <input type="phonenumber" class="form-control" id="phonenumber" placeholder="Phone Number"/>
                                 </div>
                                 <div class="form-group">
