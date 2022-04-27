@@ -51,7 +51,7 @@ const OwnerSignup = () => {
     <>
     <Navbar/>
     <div className="container-fluid">
-        <div className="container">
+        <div className="container mt-5 mb-5">
             <div className="row align-items-center">
                 <div className="col-lg-5">
                     <div className="bg-primary py-5 px-4 px-sm-5">
@@ -109,24 +109,6 @@ const OwnerSignup = () => {
                                     <h5 className="text-truncate m-0">Pet Boarding</h5>
                                 </div>
                                 <p>Choose a place and a pet lover for ypur pet from the verified profiles.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <span className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></span>
-                                    <h5 className="text-truncate m-0">Pet Feeding</h5>
-                                </div>
-                                <p>Get the best quality pet food.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <span className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></span>
-                                    <h5 className="text-truncate m-0">Pet Grooming</h5>
-                                </div>
-                                <p className="m-0">Get your pet a spa.</p>
                             </div>
                         </div>
                         <div className="col-sm-6">

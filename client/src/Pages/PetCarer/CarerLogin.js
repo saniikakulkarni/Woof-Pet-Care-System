@@ -47,11 +47,7 @@ const CarerLogin = () => {
   return (
     <>
     <Navbar/>
-    <div className="container-fluid bg-light pt-3">
-        <div className="container py-5">
-        </div>
-    </div>
-    <div className="container-fluid">
+    <div className="container-fluid mt-5 mb-5">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5">
@@ -114,10 +110,6 @@ const CarerLogin = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div className="container-fluid bg-light pt-3">
-        <div className="container py-5">
         </div>
     </div>
     </>
