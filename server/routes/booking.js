@@ -11,7 +11,8 @@ router.post('/booking/:id', auth,async (req,res) => {
         ...req.body,
         userId: req.user._id,
         petCarerId: carerId,
-        user:[req.user._id]
+        user:[req.user._id],
+        petcarer:[carerId]
     })
 
     try{

@@ -57,58 +57,32 @@ const Booking = () => {
     return (
         <>
             <Navbar/>
-            <h1>Book Pet Carer</h1>
-            <div className='container card'>
-                Name: {carerDetails.name}<br/>
-                Email: {carerDetails.email} <br />       
-                mobile number: {carerDetails.mobileNumber} <br />
-                Age: {carerDetails.age} <br /> 
-                Address: {carerDetails.address} <br />      
-                Cost Per day: {carerDetails.cost} <br />     
-                Experience :{carerDetails.experience} years <br /> 
-                <form action="">
-                    Start date:
-                    <input type="date" name="startDate" id="startDate" value={bookingDetails.startDate} 
-                    min={bookingDetails.startDate} onChange={handleChange}/><br/>
-                    End date:
-                    <input type="date" name="endDate" id="endDate" value={bookingDetails.endDate} 
-                    min={bookingDetails.startDate} onChange={handleChange}/><br/>
-                    <div>Total cost: {totalCost}</div>
-                    <button onClick={handleBooking}>Confirm Booking</button>
-                </form> 
-            </div>
-            
-            <h1 className="text-center">Book Pet Carer</h1>
-                <div class="card border-radius col-md-10 col-xl-5 m-auto mt-5">
-                    <div class="card-body">
-                        <form>
+            <h1 className="text-center my-5">Book Pet Carer</h1>
+            <div className='row'>
+                <div class="card border-radius col-md-10 col-xl-5 m-auto my-3">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <p>First Name : {carerDetails.name}</p>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <p>Last Name</p>
-                                        </div>
+                                    <div class="form-group">
+                                        <p><span className='font-weight-bold'>Name :</span>  {carerDetails.name}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Email : {carerDetails.email}</p>
+                                        <p><span className='font-weight-bold'>Email :</span> {carerDetails.email}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Phone Number : {carerDetails.mobileNumber} </p>
+                                        <p><span className='font-weight-bold'>Phone Number :</span> {carerDetails.mobileNumber} </p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Age : {carerDetails.age}</p>
+                                        <p><span className='font-weight-bold'>Age :</span> {carerDetails.age}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Address : {carerDetails.address}</p>
+                                        <p><span className='font-weight-bold'>Address :</span> {carerDetails.address}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Experience : {carerDetails.experience}</p>
+                                        <p><span className='font-weight-bold'>Experience :</span> {carerDetails.experience}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Cost : {carerDetails.cost}</p>
+                                        <p><span className='font-weight-bold'>Cost :</span> ₹{carerDetails.cost} per day</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -117,25 +91,29 @@ const Booking = () => {
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div className="col-lg-5 container mb-5 mt-3">
-                    <div className="bg-primary py-2 px-4 px-sm-5">
-                        <form className="py-5">
-                            <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Start Date" required="required"  id='startName' name='startDate' value={bookingDetails.startDate} min={bookingDetails.startDate} onChange={handleChange}/>
-                            </div>
-                            <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="End Date" required="required"  id='endDate' name='endDate' value={bookingDetails.endDate} min={bookingDetails.startDate} onChange={handleChange}/>
-                            </div>
-                            <div>
-                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleBooking} >Confirm Booking</button>
-                            </div>
-                    
-                        </form>
-                    </div>
-            </div>  
+                    <div className="col-lg-5 container mb-5 my-3">
+                        <div className="bg-primary py-2 px-4 px-sm-5">
+                            <form className="py-5">
+                                <div className="form-group">
+                                    <input type="date" className="form-control border-0 p-4" placeholder="Start Date" required="required"  id='startName' name='startDate' value={bookingDetails.startDate} min={bookingDetails.startDate} onChange={handleChange}/>
+                                </div>
+                                <div className="form-group">
+                                    <input type="date" className="form-control border-0 p-4" placeholder="End Date" required="required"  id='endDate' name='endDate' value={bookingDetails.endDate} min={bookingDetails.startDate} onChange={handleChange}/>
+                                </div>
+                                <div className="form-group">
+                                    <h1>Total Cost: {totalCost}</h1>
+                                </div>
+                                <div>
+                                    <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleBooking} >Confirm Booking</button>
+                                </div>
+                        
+                            </form>
+                        </div>
+                </div>  
+            </div>
+                
         </>
         
     )

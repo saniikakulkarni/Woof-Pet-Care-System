@@ -54,14 +54,22 @@ const Navbar = () => {
                         </Link>
                         <div className="navbar-nav mr-auto py-0">
                             {
-                                (token && type==='owner') && <Link to="/service" className="nav-item nav-link">Services</Link>
+                                (token && type==='owner') && 
+                                <>
+                                    <Link to="/service" className="nav-item nav-link">Services</Link>
+                                    <Link to="/owner/history" className="nav-item nav-link">Bookings</Link>
+                                </>
                             }
                             <Link to="/about" className="nav-item nav-link">About</Link>
                             {
                                 (token && type==='owner') && <Link to="/owner/profile" className="nav-item nav-link">Profile</Link>
                             }
                             {
-                                (token && type==='carer') && <Link to="/carer/profile" className="nav-item nav-link">Profile</Link>
+                                (token && type==='carer') && 
+                                <>
+                                    <Link to="/carer/profile" className="nav-item nav-link">Profile</Link>
+                                    <Link to="/carer/bookingdetails" className="nav-item nav-link">Bookings</Link>
+                                </>
                             }
                         </div>
                     </div>

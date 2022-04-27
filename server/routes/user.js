@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
 const PetCarer = require('../models/petcarer')
+const Booking = require('../models/booking')
 const sharp  = require('sharp')
 const router = new express.Router()
 const auth = require('../middleware/auth')
@@ -54,6 +55,26 @@ router.post('/users/logoutAll', auth, async (req, res) => {
 
 router.get('/users/me', auth, async (req,res) => {
     res.send(req.user)
+})
+
+router.get('/users/bookings', auth, async (req,res) => {
+    try {
+        const sort = {}
+        if(req.query.sortBy){
+            const parts = req.query.sortBy.split(":")
+            sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+        }
+        const bookings = await Booking.find({ userId: req.user._id }).populate({
+            path:'petcarer',
+            options:{
+                sort
+            }
+        })
+        res.send(bookings)
+    } catch(e) {
+        res.status(500).send(e)
+    }
+    
 })
 
 const upload = multer({

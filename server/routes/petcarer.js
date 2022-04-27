@@ -78,20 +78,12 @@ router.get('/petcarers/bookings', carerAuth, async (req,res) => {
         sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
     }
     try{
-        // const bookings = await Booking.find({ petCarerId: req.petcarer._id }).populate({
-        //     path:'users',
-        //     options:{
-        //         sort
-        //     }
-        // })
-
         const bookings = await Booking.find({ petCarerId: req.petcarer._id }).populate({
-                path:'user',
-                options:{
-                    sort
-                }
-            })
-        console.log(bookings)
+            path:'user',
+            options:{
+                sort
+            }
+        })
         res.send(bookings)
     } catch(e) {
         console.log(e)
