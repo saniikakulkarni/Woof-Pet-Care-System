@@ -4,6 +4,18 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const pointSchema = new mongoose.Schema({
+    type: {
+      type: String,
+      enum: ['Point'],
+      required: true
+    },
+    coordinates: {
+      type: [Number],
+      required: true
+    }
+});
+
 const petCarerSchema = new mongoose.Schema({
     name:{
        type: String,
@@ -76,11 +88,19 @@ const petCarerSchema = new mongoose.Schema({
             }
         }
     },
+    address:{
+        type: String,
+        required:true,
+    },
     avatar:{
         type:Buffer
     },
     aadharCard:{
         type: Buffer,
+    },
+    location:{
+        type: pointSchema,
+        required: true
     }
 }, {
     timestamps:true

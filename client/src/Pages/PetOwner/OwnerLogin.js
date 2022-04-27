@@ -31,6 +31,7 @@ const OwnerLogin = () => {
     const data = response.data
     if(data.user && data.token){
         Notification("Success", "Login Successful!", "success")  
+        axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
         localStorage.setItem('token', data.token)
         localStorage.setItem('id', data._id)
         localStorage.setItem('type', 'owner')

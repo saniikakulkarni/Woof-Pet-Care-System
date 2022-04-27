@@ -14,6 +14,7 @@ import OwnerSignup from "./Pages/PetOwner/OwnerSignup"
 import Service from "./Pages/PetOwner/Service";
 import OwnerProfile from "./Pages/PetOwner/OwnerProfile";
 import DisplayCarer from "./Pages/PetOwner/DisplayCarer";
+import Booking from "./Pages/PetOwner/Booking";
 
 // Pet Carer pages
 import CarerSignup from "./Pages/PetCarer/CarerSignup"
@@ -44,6 +45,7 @@ function App() {
 					<Route exact path="/service" element={<Service />}/>
 					<Route exact path="/navigate" element={<Navigate />}/>
 					<Route exact path="/owner/displaycarer" element={<DisplayCarer/>}/>
+					<Route exact path="/owner/:id" element={<Booking/>}/>
         		</Routes> 
 				<Footer/>
 			</Router>
