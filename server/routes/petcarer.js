@@ -84,6 +84,19 @@ router.post('/petcarers',auth, async (req,res) => {
     }
 })
 
+router.get('/petcarers/:id',auth, async (req,res) => {
+    const id = req.params.id
+    try{
+        const petcarer = await PetCarer.findOne({ _id: id })
+        const petcarerObject = petcarer.toObject()
+        delete petcarerObject.tokens
+        delete petcarerObject.password
+        res.status(200).send(petcarer)
+    } catch(e) {
+        res.status(500).send(e)
+    }
+})
+
 router.get('/petcarers/me',carerAuth, async (req,res) => {
     res.send(req.petcarer)
 })
