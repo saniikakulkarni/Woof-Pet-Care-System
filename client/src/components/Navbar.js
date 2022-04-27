@@ -55,7 +55,6 @@ const Navbar = () => {
                                 token && <Link to="/service" className="nav-item nav-link">Services</Link>
                             }
                             <Link to="/about" className="nav-item nav-link">About</Link>
-                            <Link to="/contact" className="nav-item nav-link">Contact</Link>
                             {
                                 token && <Link to="/owner/profile" className="nav-item nav-link">Profile</Link>
                             }
