@@ -35,20 +35,6 @@ const Footer = () => {
                             <a className="text-white" href="#"><i className="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>
                     </div>
-                    <div className="col-md-4 mb-3">
-                        <h5 className="text-primary mb-4">Newsletter</h5>
-                        <form action="">
-                            <div className="form-group">
-                                <input type="text" className="form-control border-0" placeholder="Your Name" required="required" />
-                            </div>
-                            <div className="form-group">
-                                <input type="email" className="form-control border-0" placeholder="Your Email" required="required" />
-                            </div>
-                            <div>
-                                <button className="btn btn-lg btn-primary btn-block border-0" type="submit">Submit Now</button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

@@ -84,6 +84,9 @@ const Booking = () => {
                                     <div class="form-group">
                                         <p><span className='font-weight-bold'>Cost :</span> ₹{carerDetails.cost} per day</p>
                                     </div>
+                                    <div class="form-group">
+                                        <p>Total Cost : {totalCost}</p>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-center">
