@@ -11,6 +11,7 @@ const Home = () => {
         const token = localStorage.getItem('token')
         if(token){
             setToken(token)
+            
         }
     },[])
 
@@ -27,14 +28,20 @@ const Home = () => {
                             <h1 className="display-3 text-white mb-3">Keep Your Pet Happy</h1>
                             <h5 className="text-white mb-3 d-none d-sm-block">Take a hassle free journey without worrying about your pets.</h5>
                             {
-                                token ? (
-                                    <Link to='/service' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">Premium Services</Link>
-                                ) : (
-                                    <>
-                                        <Link to='/owner/signup' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">Pet Owner Signup</Link>
-                                        <Link to='/carer/signup' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">Pet Carer Signup</Link>
-                                    </>
-                                )
+                                
+                                    token ?  ( 
+                                        ( localStorage.getItem('type')==='owner' ) ? (
+                                            <Link to='/service' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">Premium Services</Link>
+                                        ) : (
+                                            <Link to='/carer/bookingdetails' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">View Booking Details</Link>
+                                        )
+                                    ) : (
+                                        <>
+                                            <Link to='/owner/signup' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">Pet Owner Signup</Link>
+                                            <Link to='/carer/signup' className="btn btn-lg btn-primary mt-3 mt-md-4 px-4 m-4">Pet Carer Signup</Link>
+                                        </>
+                                    )
+                                 
                             }
                         </div>
                     </div>

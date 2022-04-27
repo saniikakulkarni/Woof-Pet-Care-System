@@ -6,11 +6,13 @@ const Navbar = () => {
 
     const navigate = useNavigate()
 
-    const [token,settoken] = useState('')
+    const [token,setToken] = useState('')
+    const [type,setType] = useState('')
     useEffect(() => {
         const token = localStorage.getItem('token')
         if(token){
-            settoken(token)
+            setToken(token)
+            setType(localStorage['type'])
         }
     },[])
 
@@ -52,11 +54,14 @@ const Navbar = () => {
                         </Link>
                         <div className="navbar-nav mr-auto py-0">
                             {
-                                token && <Link to="/service" className="nav-item nav-link">Services</Link>
+                                (token && type==='owner') && <Link to="/service" className="nav-item nav-link">Services</Link>
                             }
                             <Link to="/about" className="nav-item nav-link">About</Link>
                             {
-                                token && <Link to="/owner/profile" className="nav-item nav-link">Profile</Link>
+                                (token && type==='owner') && <Link to="/owner/profile" className="nav-item nav-link">Profile</Link>
+                            }
+                            {
+                                (token && type==='carer') && <Link to="/carer/profile" className="nav-item nav-link">Profile</Link>
                             }
                         </div>
                     </div>

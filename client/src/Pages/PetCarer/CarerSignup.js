@@ -15,7 +15,7 @@ const CarerSignup = () => {
     const navigate  = useNavigate()
     useEffect(() => {
         if(localStorage.getItem('token')){
-            navigate("/carer/home")
+            navigate("/")
         }
     }, [])
 
@@ -43,7 +43,7 @@ const CarerSignup = () => {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('id', data.id)
                 localStorage.setItem('type', 'carer')
-                navigate("/carer/home")
+                navigate("/")
             } else {
                 Notification("Warning", "Could not login.", "danger")
                 setPetCarer({ ...petcarer, name: '', email: '', age: '' , mobileNumber: '', password: '', cost: '', experience: '', address: '' })

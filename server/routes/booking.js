@@ -10,7 +10,8 @@ router.post('/booking/:id', auth,async (req,res) => {
     const booking = new Booking({
         ...req.body,
         userId: req.user._id,
-        petCarerId: carerId
+        petCarerId: carerId,
+        user:[req.user._id]
     })
 
     try{
@@ -20,9 +21,5 @@ router.post('/booking/:id', auth,async (req,res) => {
         res.status(400).send(e)
     }
 })
-
-// route to get user history
-
-// route to show bookig details to petcarer
 
 module.exports = router

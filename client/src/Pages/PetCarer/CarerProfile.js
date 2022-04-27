@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from "../../components/Navbar"
-
-import { Link} from 'react-router-dom';
+import Notification from '../../components/Notification'
+import { Link,useNavigate } from 'react-router-dom';
 
 const CarerProfile = () => {
+
+    const navigate = useNavigate()
+    useEffect(() => {
+        if(!localStorage.getItem('token') || localStorage.getItem('type')!='carer'){
+          Notification("Warning", "Login as Pet Carer!", "danger")
+          navigate('/')
+        }
+      },[])
+
   return (
     <>
     <Navbar/>

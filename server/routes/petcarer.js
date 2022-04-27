@@ -1,5 +1,6 @@
 const express = require('express')
 const PetCarer = require('../models/petcarer')
+const Booking = require('../models/booking')
 const sharp  = require('sharp')
 const router = new express.Router()
 const carerAuth = require('../middleware/carerAuth')
@@ -67,6 +68,34 @@ router.post('/petcarers/logoutAll', carerAuth, async (req, res) => {
         res.send()
     } catch(e) {
         res.status(500).send()
+    }
+})
+
+router.get('/petcarers/bookings', carerAuth, async (req,res) => {
+    const sort = {}
+    if(req.query.sortBy){
+        const parts = req.query.sortBy.split(":")
+        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+    }
+    try{
+        // const bookings = await Booking.find({ petCarerId: req.petcarer._id }).populate({
+        //     path:'users',
+        //     options:{
+        //         sort
+        //     }
+        // })
+
+        const bookings = await Booking.find({ petCarerId: req.petcarer._id }).populate({
+                path:'user',
+                options:{
+                    sort
+                }
+            })
+        console.log(bookings)
+        res.send(bookings)
+    } catch(e) {
+        console.log(e)
+        res.status(400).send(e)
     }
 })
 

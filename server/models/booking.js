@@ -28,10 +28,23 @@ const bookingSchema = new mongoose.Schema({
                 throw new Error('Number should be greater than 0')
             }
         }
-    }
+    },
+    user:[{ type: mongoose.Schema.Types.ObjectId, ref:'User' }]
 }, {
     timestamps:true
 })
+
+// bookingSchema.virtual('petcarers', {
+//     ref: 'PetCarer',
+//     localField: 'petCarerId',
+//     foreignField: '_id'
+// })
+
+// bookingSchema.virtual('users', {
+//     ref: 'User',
+//     localField: 'userId',
+//     foreignField: '_id'
+// })
 
 const Booking = new mongoose.model('Booking', bookingSchema)
 
