@@ -1,7 +1,10 @@
 const express = require('express')
+
 const User = require('../models/user')
 const PetCarer = require('../models/petcarer')
 const Booking = require('../models/booking')
+const Review = require('../models/reviews')
+
 const sharp  = require('sharp')
 const router = new express.Router()
 const auth = require('../middleware/auth')
@@ -132,15 +135,6 @@ router.get('/users/:id',async (req,res) => {
     } catch(e) {
         res.send(e)
     }
-
-    // User.findById(_id).then((u) => {
-    //     if(!u){
-    //         return res.status(404).send()
-    //     }
-    //     res.send(u)
-    // }).catch((e)=>{
-    //     res.status(500).send()
-    // })
 })
 
 router.patch('/users/me', auth, async (req,res) => {
@@ -163,14 +157,32 @@ router.patch('/users/me', auth, async (req,res) => {
     }
 })
 
-router.delete('/users/me', auth, async (req,res) => {
+router.post('/users/review/:id', auth, async (req,res) => {
+    const petCarerId = req.params.id
+    const review = new Review({
+        ...req.body,
+        userId: req.user._id,
+        petCarerId,
+    })
+
     try{
-        await req.user.remove()
-        res.send(req.user)
-    }catch(e){
+        await review.save()
+        res.status(201).send(review)
+    } catch(e) {
         res.status(400).send(e)
     }
 })
+
+
+
+// router.delete('/users/me', auth, async (req,res) => {
+//     try{
+//         await req.user.remove()
+//         res.send(req.user)
+//     }catch(e){
+//         res.status(400).send(e)
+//     }
+// })
 
 
 module.exports = router

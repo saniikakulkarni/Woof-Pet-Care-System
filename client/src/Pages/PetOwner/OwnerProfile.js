@@ -37,7 +37,7 @@ const OwnerProfile = () => {
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                           <p><span className='font-weight-bold'>Name :</span>{ownerDetails.name}</p>
+                                           <p><span className='font-weight-bold'>Name :</span> {ownerDetails.name}</p>
                                         </div>
                                         <div class="form-group">
                                            <p><span className='font-weight-bold'>Email :</span> {ownerDetails.email}</p>
@@ -49,7 +49,7 @@ const OwnerProfile = () => {
                                             <p><span className='font-weight-bold'>Age :</span> {ownerDetails.age}</p>
                                          </div>
                                          <div class="form-group">
-                                            <p><span className='font-weight-bold'>Address :</span>{ownerDetails.address}</p>
+                                            <p><span className='font-weight-bold'>Address :</span> {ownerDetails.address}</p>
                                          </div>
                                     </div>
                                     <div class="col-md-4">

@@ -18,7 +18,7 @@ const reviewSchema = new mongoose.Schema({
         min: 0,
         max: 5,
     },
-    reviews:{
+    comments:{
        type: String,
     }
 }, {

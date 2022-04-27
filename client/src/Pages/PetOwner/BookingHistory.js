@@ -1,5 +1,5 @@
 import React,{ useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "../../components/Navbar";
 import axios from '../../axios'
 
@@ -56,9 +56,6 @@ const BookingHistory = () => {
                                 <p><span className='font-weight-bold'>Phone Number :</span> {booking.petcarer[0].mobileNumber} </p>
                             </div>
                             <div class="form-group">
-                                <p><span className='font-weight-bold'>Age :</span> {booking.petcarer[0].age}</p>
-                            </div>
-                            <div class="form-group">
                                 <p><span className='font-weight-bold'>Address :</span> {booking.petcarer[0].address}</p>
                             </div>
                             <div class="form-group">
@@ -68,8 +65,9 @@ const BookingHistory = () => {
                                 <p><span className='font-weight-bold'>Total Cost :</span> ₹{booking.totalCost} </p>
                             </div>
                             <div className="form-group">
-                            <p><span className='font-weight-bold'>Address :</span></p>
+                              <p><span className='font-weight-bold'>Address :</span> {booking.petcarer[0].address}</p>
                             </div>
+                            <Link className="btn btn-primary" to={"/owner/review/"+booking.petcarer[0]._id}>Review</Link>
                           </div>
                           <div className="col-md-4">
                             <div className="text-center">

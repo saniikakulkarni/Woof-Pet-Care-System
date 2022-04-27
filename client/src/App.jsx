@@ -16,6 +16,7 @@ import DisplayCarer from "./Pages/PetOwner/DisplayCarer";
 import Booking from "./Pages/PetOwner/Booking";
 import OwnerProfileEdit from './Pages/PetOwner/OwnerProfileEdit';
 import BookingHistory from './Pages/PetOwner/BookingHistory';
+import Review from './Pages/PetOwner/Review'
 
 // Pet Carer pages
 import CarerSignup from "./Pages/PetCarer/CarerSignup"
@@ -43,7 +44,9 @@ function App() {
 					<Route exact path="/owner/profileedit" element={<OwnerProfileEdit/>}/>
 					<Route exact path="/owner/displaycarer" element={<DisplayCarer/>}/>
 					<Route exact path="/owner/history" element={<BookingHistory/>}/>
+					<Route exact path="/owner/review/:id" element={<Review/>}/>
 					<Route exact path="/owner/:id" element={<Booking/>}/>
+					
 
 					{/* Carer Routes */}
 					<Route exact path="/carer/login" element={<CarerLogin />}/>

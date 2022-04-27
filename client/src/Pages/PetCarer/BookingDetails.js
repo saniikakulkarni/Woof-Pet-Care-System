@@ -60,7 +60,7 @@ const BookingDetails = () => {
                               <p>Phone Number: {booking.user[0].mobileNumber}</p> 
                             </div>
                             <div className="form-group">
-                              <p>Address: </p> 
+                              <p>Address: {booking.user[0].address}</p> 
                             </div>
                             <div className="form-group">
                               <p>Start Date: {booking.startDate} </p> 
