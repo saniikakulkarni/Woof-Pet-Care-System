@@ -69,45 +69,9 @@ const CarerLogin = () => {
                 </div>
                 <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
                     <h1 className="display-4 mb-4">Pet Carer Login</h1>
-                    <p>Find a pet lover in your preferred location</p>
-                    <div className="row py-2">
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 className="text-truncate m-0">Pet Boarding</h5>
-                                </div>
-                                <p>Choose a place and a pet lover for ypur pet from the verified profiles.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 className="text-truncate m-0">Pet Feeding</h5>
-                                </div>
-                                <p>Get the best quality pet food.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 className="text-truncate m-0">Pet Grooming</h5>
-                                </div>
-                                <p className="m-0">Get your pet a spa.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="d-flex flex-column">
-                                <div className="d-flex align-items-center mb-2">
-                                    <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 className="text-truncate m-0">Pet Tracking</h5>
-                                </div>
-                                <p className="m-0">Track your pet</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h4 className="text-secondary mb-3">Have experience in taking care of Pets? Or you love pets but do not have one?</h4>
+                    <h1 className="display-4 mb-4">List yourself as a <span className="text-primary">Pet Carer</span></h1>
+                    <p>Pet owners will choose you to take care of their pets</p>
                 </div>
             </div>
         </div>
