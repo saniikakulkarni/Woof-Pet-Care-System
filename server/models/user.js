@@ -46,12 +46,32 @@ const userSchema = new mongoose.Schema({
     mobileNumber:{
         type: String,
         required: true,
+        unique: true,
         validate(value){
             if(!validator.isMobilePhone(value)){
                 throw new Error('Incorrect Mobile Number')
             }
         }
-    },
+    }, 
+    address: {
+        type: String,
+        required: true,
+    }, 
+    petName:{
+        type: String,
+        required: true,
+        min:3
+    }, 
+    petBreed:{
+        type: String,
+        required: true,
+    }, 
+    petLikes:{
+        type: String,
+    }, 
+    petDislikes:{
+        type: String,
+    }, 
     tokens:[{
         token:{
             type: String,
@@ -63,12 +83,6 @@ const userSchema = new mongoose.Schema({
     }
 }, {
     timestamps:true
-})
-
-userSchema.virtual('bookings', {
-    ref: 'Booking',
-    localField: '_id',
-    foreignField: 'userId'
 })
 
 userSchema.methods.toJSON = function(){

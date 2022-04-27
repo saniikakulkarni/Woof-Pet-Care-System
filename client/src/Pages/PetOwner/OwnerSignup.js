@@ -19,7 +19,7 @@ const OwnerSignup = () => {
         }
     }, [])
 
-    const [user, setUser] = useState({ name: '', email: '', age: '' , mobileNumber: '', password: '' });
+    const [user, setUser] = useState({ name: '', email: '', age: '' , mobileNumber: '', password: '', address: '', petName:'', petBreed:'', petLikes:'', petDislikes:''  });
     
     const handleChange = (e) => {
       const name = e.target.name;
@@ -32,18 +32,16 @@ const OwnerSignup = () => {
         const response = await axios.post('/users', user);
         const data = response.data
         if(data.user && data.token){
-            console.log(data)
             Notification("Success", "Registered Successfully!!", "success")
-            setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
+            setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '', address: '', petName:'', petBreed:'', petLikes:'', petDislikes:''  })
             localStorage.setItem('token', data.token)
             localStorage.setItem('id', data._id)
             localStorage.setItem('type', 'owner')
             navigate("/")
         } else {
             Notification("Warning", "Could not login.", "danger")
-            setUser({ ...user, name: '', email: '', age: '' , mobileNumber: '', password: '' })
+            setUser({...user,  name: '', email: '', age: '' , mobileNumber: '', password: '', address: '', petName:'', petBreed:'', petLikes:'', petDislikes:''  })
         }
-        
     };
 
 
@@ -81,10 +79,10 @@ const OwnerSignup = () => {
                                 <input type="text" className="form-control border-0 p-4" placeholder="Pet Breed" required="required"  id='petBreed' name='petBreed' value={user.petBreed} onChange={handleChange}/>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Likes" required="required"  id='petLikes' name='petLikes' value={user.petLikes} onChange={handleChange}/>
+                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Likes"   id='petLikes' name='petLikes' value={user.petLikes} onChange={handleChange}/>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Dislikes" required="required"  id='petDislikes' name='petDislikes' value={user.petDislikes} onChange={handleChange}/>
+                                <input type="text" className="form-control border-0 p-4" placeholder="Pet Dislikes"   id='petDislikes' name='petDislikes' value={user.petDislikes} onChange={handleChange}/>
                             </div>
                             <div>
                                 <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit} >Sign Up</button>

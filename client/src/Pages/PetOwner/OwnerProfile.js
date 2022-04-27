@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from "../../components/Navbar"
 
-import { Link} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from '../../axios';
 
 const OwnerProfile = () => {
+
+    const [ownerDetails, setOwnerDetails] = useState({})
+
+    useEffect(() => {
+        async function fetchOwnerDetails(){
+            const response = await axios.get('/users/me',{ headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+            setOwnerDetails(response.data)
+        }
+        try {
+            fetchOwnerDetails()
+        } catch(e) {
+            Notification("Warning", "Could not fetch user Details.", "danger")
+        }
+    }, [])
+
+
   return (
     <>
     <Navbar/>
@@ -20,22 +37,19 @@ const OwnerProfile = () => {
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                           <p>Name</p>
+                                           <p><span className='font-weight-bold'>Name :</span>{ownerDetails.name}</p>
                                         </div>
                                         <div class="form-group">
-                                           <p>Email</p>
+                                           <p><span className='font-weight-bold'>Email :</span> {ownerDetails.email}</p>
                                         </div>
                                         <div class="form-group">
-                                            <p>Phone Number</p>
+                                            <p><span className='font-weight-bold'>Phone Number :</span> {ownerDetails.mobileNumber}</p>
                                          </div>
                                          <div class="form-group">
-                                            <p>Age</p>
+                                            <p><span className='font-weight-bold'>Age :</span> {ownerDetails.age}</p>
                                          </div>
                                          <div class="form-group">
-                                            <p>Address</p>
-                                         </div>
-                                         <div class="form-group">
-                                            <p>Govt ID</p>
+                                            <p><span className='font-weight-bold'>Address :</span>{ownerDetails.address}</p>
                                          </div>
                                     </div>
                                     <div class="col-md-4">
@@ -51,21 +65,21 @@ const OwnerProfile = () => {
                     
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Pet Deatils</h5>
+                            <h5 class="card-title mb-0">Pet Details</h5>
                         </div>
                         <div class="card-body">
                             <form>
                                 <div class="form-group">
-                                    <p>Name</p>
+                                    <p><span className='font-weight-bold'>Name :</span> {ownerDetails.petName}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p>Breed</p>
+                                    <p><span className='font-weight-bold'>Breed :</span> {ownerDetails.petBreed}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p>Likes</p>
+                                    <p><span className='font-weight-bold'>Likes :</span> {ownerDetails.petLikes}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p>Dislikes</p>
+                                    <p><span className='font-weight-bold'>Dislikes :</span> {ownerDetails.petDislikes}</p>
                                 </div>  
                             </form>
                         </div>

@@ -1,69 +1,110 @@
-import React from 'react'
-import Navbar from "../../components/Navbar"
+import React, {useState,useEffect} from 'react'
 
-import { Link} from 'react-router-dom';
+import Notification from "../../components/Notification"
+import Navbar from "../../components/Navbar"
+import axios from '../../axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 const OwnerProfileEdit = () => {
+
+    const navigate = useNavigate()
+
+    const [ownerDetails, setOwnerDetails] = useState({})
+
+    useEffect(() => {
+        async function fetchOwnerDetails(){
+            const response = await axios.get('/users/me',{ headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+            setOwnerDetails(response.data)
+        }
+        try {
+            fetchOwnerDetails()
+        } catch(e) {
+            Notification("Warning", "Could not fetch user Details.", "danger")
+        }
+    }, [])
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setOwnerDetails({ ...ownerDetails, [name]: value });
+      };
+
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        const { name, email, password, age, address, mobileNumber } = ownerDetails
+        try{
+            const response = await axios.patch('/users/me', { name, email, password, age, address, mobileNumber }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+            Notification("Success", "Details Updated Successfully!!", "success")
+            navigate("/owner/profile")
+        } catch(e) {
+            Notification("Warning", "Could not update.", "danger")
+        }
+    }
+    
+
   return (
     <>
     <Navbar/>
-    <div class="container p-0 mt-5 ">
-    <div class="row">
-        <div class="col-md-7 col-xl-8 m-auto">
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="account" role="tabpanel">
-                    <div class="card top-border-radius">
-                        <div class="card-body">
+    <div className="container p-0 mt-5 ">
+    <div className="row">
+        <div className="col-md-7 col-xl-8 m-auto">
+            <div className="tab-content">
+                <div className="tab-pane fade show active" id="account" role="tabpanel">
+                    <div className="card top-border-radius">
+                        <div className="card-body">
                             <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
-                                        <div class="mt-2">
-                                            <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
+                                <div className="form-row">
+                                    <div className="form-group col-md-12">
+                                        <img alt="" src="" className="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                        <div className="mt-2">
+                                            <span className="btn btn-primary"><i className="fa fa-upload"></i></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="name">Phone Number</label>
-                                    <input type="phonenumber" class="form-control" id="name" placeholder="Name"/>
+                                <div className="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input type="text" className="form-control" id="name" name="name" value={ownerDetails.name} onChange={handleChange} placeholder="Name"/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="phonenumber">Phone Number</label>
-                                    <input type="phonenumber" class="form-control" id="phonenumber" placeholder="Phone Number"/>
+                                <div className="form-group">
+                                    <label htmlFor="mobileNumber">Phone Number</label>
+                                    <input type="phonenumber" className="form-control" id="mobileNumber" name="mobileNumber" value={ownerDetails.mobileNumber} onChange={handleChange} placeholder="Phone Number"/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email"/>
+                                <div className="form-group">
+                                    <label htmlFor="email">Email</label>
+                                    <input type="email" className="form-control" id="email" name="email" value={ownerDetails.email} onChange={handleChange} placeholder="Email"/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Apartment,Floor or House No"/>
+                                <div className="form-group">
+                                    <label htmlFor="address">Address</label>
+                                    <input type="text" className="form-control" id="address" placeholder="Apartment, Floor or House No" name="address" value={ownerDetails.address} onChange={handleChange}/>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <div className="form-group">
+                                    <label htmlFor="age">Age</label>
+                                    <input type="number" className="form-control" id="age" name="age" value={ownerDetails.age} onChange={handleChange} placeholder="Age"/>
+                                </div>
+                                <button className="btn btn-primary" onClick={handleUpdate}>Save changes</button>
                             </form>
-
                         </div>
                     </div>
 
                 </div>
-                <div class="tab-pane fade show active" id="password" role="tabpanel">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Password</h5>
+                <div className="tab-pane fade show active" id="password" role="tabpanel">
+                    <div className="card">
+                        <div className="card-body">
+                            <h5 className="card-title">Password</h5>
                             <form>
-                                <div class="form-group">
-                                    <label for="inputPasswordCurrent">Current password</label>
-                                    <input type="password" class="form-control" id="inputPasswordCurrent"/>
+                                <div className="form-group">
+                                    <label htmlFor="inputPasswordCurrent">Current password</label>
+                                    <input type="password" className="form-control" id="inputPasswordCurrent"/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew">New password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew"/>
+                                <div className="form-group">
+                                    <label htmlFor="inputPasswordNew">New password</label>
+                                    <input type="password" className="form-control" id="inputPasswordNew"/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew2">Verify password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew2"/>
+                                <div className="form-group">
+                                    <label htmlFor="inputPasswordNew2">Verify password</label>
+                                    <input type="password" className="form-control" id="inputPasswordNew2"/>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" className="btn btn-primary">Save changes</button>
                             </form>
 
                         </div>
