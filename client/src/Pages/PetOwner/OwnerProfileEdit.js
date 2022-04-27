@@ -15,34 +15,13 @@ const OwnerProfileEdit = () => {
                     <div class="card top-border-radius">
                         <div class="card-body">
                             <form>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label for="inputUsername">Username</label>
-                                            <input type="text" class="form-control" id="inputUsername" placeholder="Username"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="text-center">
-                                            <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
-                                            <div class="mt-2">
-                                                <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
-                                            </div>
-                                            <small>For best results, use an image at least 128px by 128px in .jpg format</small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form>
-
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
                                 <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                        <div class="mt-2">
+                                            <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
+                                        </div>
+                                    </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputFirstName">First name</label>
                                         <input type="text" class="form-control" id="inputFirstName" placeholder="First name"/>
@@ -95,7 +74,7 @@ const OwnerProfileEdit = () => {
                     </div>
                 </div>
 
-                <Link to='/owner/profile' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2 w-25 mb-5">Back</Link>
+                <Link to='/owner/profile' className="btn btn-lg btn-primary mb-5">Back</Link>
             </div>
         </div>
     </div>

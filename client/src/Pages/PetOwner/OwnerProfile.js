@@ -75,7 +75,7 @@ const OwnerProfile = () => {
                             </form>
                         </div>
                     </div>
-                  <Link to='/owner/profileedit' className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2 w-25 mb-5 ">Edit</Link>
+                  <Link to='/owner/profileedit' className="btn btn-lg btn-primary mb-5">Edit</Link>
                 </div>
             </div>
         </div>
