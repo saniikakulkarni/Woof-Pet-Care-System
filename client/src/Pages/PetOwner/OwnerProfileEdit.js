@@ -10,6 +10,7 @@ const OwnerProfileEdit = () => {
     const navigate = useNavigate()
 
     const [ownerDetails, setOwnerDetails] = useState({})
+    const [profileImage, setProfileImage] = useState(null)
 
     useEffect(() => {
         async function fetchOwnerDetails(){
@@ -33,13 +34,36 @@ const OwnerProfileEdit = () => {
         e.preventDefault();
         const { name, email, password, age, address, mobileNumber } = ownerDetails
         try{
-            const response = await axios.patch('/users/me', { name, email, password, age, address, mobileNumber }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+            await axios.patch('/users/me', { name, email, password, age, address, mobileNumber }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
             Notification("Success", "Details Updated Successfully!!", "success")
             navigate("/owner/profile")
         } catch(e) {
             Notification("Warning", "Could not update.", "danger")
         }
     }
+
+    console.log(ownerDetails.avatar)
+
+    const handleProfileSubmit = async (event) => {
+        event.preventDefault()
+        const formData = new FormData();
+        formData.append("avatar", profileImage);
+        try {
+          const response = await axios.post("/users/me/avatar", formData, {
+            headers: { 
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${localStorage.getItem('token')}` 
+            }
+          });
+          Notification("Success", "Profile image updated", "success")
+        } catch(error) {
+            Notification("Warning", "Profile image update failed", "danger")
+        }
+      }
+    
+      const handleImageSelect = (event) => {
+        setProfileImage(event.target.files[0])
+      }
     
 
   return (
@@ -55,12 +79,20 @@ const OwnerProfileEdit = () => {
                             <form>
                                 <div className="form-row">
                                     <div className="form-group col-md-12">
-                                        <img alt="" src="" className="rounded-circle img-responsive mt-2" width="128" height="128"/>
-                                        <div className="mt-2">
-                                            <span className="btn btn-primary"><i className="fa fa-upload"></i></span>
-                                        </div>
+                                        <img alt="" src={ ownerDetails.avatar} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
                                     </div>
+                                    <div className="form-group mt-3">
+                                        <label htmlFor="avatar">Profile Image</label>
+                                        <div className="input-group">                                       
+                                            <input type="file" onChange={handleImageSelect} className="form-control"/>
+                                            <div className="input-group-append">
+                                                <button className="btn btn-primary" onClick={handleProfileSubmit} type="button">Update Profile</button>
+                                            </div>
+                                        </div>                                     
+                                    </div>      
                                 </div>
+                            </form>
+                            <form>
                                 <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input type="text" className="form-control" id="name" name="name" value={ownerDetails.name} onChange={handleChange} placeholder="Name"/>
