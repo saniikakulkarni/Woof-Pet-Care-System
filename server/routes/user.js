@@ -98,7 +98,7 @@ router.post('/users/me/avatar', auth, upload.single('avatar') ,async (req,res) =
     await req.user.save()
     res.send()
 },(error, req, res, next) => {
-    res.status(400).send({ error: error.message })
+    res.send({ error: error.message }).status(400)
 })
 
 router.delete('/users/me/avatar', auth, async (req, res) => {

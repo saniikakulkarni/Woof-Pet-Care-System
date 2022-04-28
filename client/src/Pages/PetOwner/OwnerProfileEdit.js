@@ -42,27 +42,31 @@ const OwnerProfileEdit = () => {
         }
     }
 
-    console.log(ownerDetails.avatar)
-
     const handleProfileSubmit = async (event) => {
         event.preventDefault()
+        if(!profileImage){
+            Notification("Warning", "Please upload image" , "danger")
+            return
+        }
         const formData = new FormData();
         formData.append("avatar", profileImage);
-        try {
-          const response = await axios.post("/users/me/avatar", formData, {
-            headers: { 
-                "Content-Type": "multipart/form-data",
-                Authorization: `Bearer ${localStorage.getItem('token')}` 
-            }
-          });
-          Notification("Success", "Profile image updated", "success")
-        } catch(error) {
-            Notification("Warning", "Profile image update failed", "danger")
+        
+        const {data,status} = await axios.post("/users/me/avatar", formData, {
+        headers: { 
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem('token')}` 
+        }
+        });
+        if(data.error){
+            Notification("Warning",data.error , "danger")
+        } else {
+            Notification("Success", "Profile image updated", "success")
+            setOwnerDetails(ownerDetails)
         }
       }
     
       const handleImageSelect = (event) => {
-        setProfileImage(event.target.files[0])
+            setProfileImage(event.target.files[0])
       }
     
 
@@ -79,7 +83,7 @@ const OwnerProfileEdit = () => {
                             <form>
                                 <div className="form-row">
                                     <div className="form-group col-md-12">
-                                        <img alt="" src={ ownerDetails.avatar} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
+                                        <img alt="User Profile" src={ `data:image/jpeg;base64,${ownerDetails.avatar}`} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
                                     </div>
                                     <div className="form-group mt-3">
                                         <label htmlFor="avatar">Profile Image</label>
