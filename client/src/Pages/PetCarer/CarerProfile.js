@@ -16,29 +16,54 @@ const CarerProfile = () => {
   return (
     <>
     <Navbar/>
-    <div className="container-fluid bg-light pt-5">
-        <div className="container py-5">
-            <div className="d-flex flex-column text-center mb-5">
-                <h1 className="display-4 m-0"><span className="text-primary">Premium</span> Pet Services</h1>
-            </div>
-            <div className="row pb-3">
-                <Link to="/owner/displaycarer" className="col-md-6 mb-4"> 
-                    <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <span className="flaticon-house display-3 font-weight-normal text-secondary mb-3"></span>
-                        <h3 className="mb-3">Pet Boarding</h3>
-                        <p>Find a perfect care taker for your pet</p>
+    <div class="container mt-5">
+        <div class="col-md-10 col-xl-9 m-auto">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="account" role="tabpanel">
+                    <div class="card top-border-radius">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Pet Carer Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                           <p>Name</p>
+                                        </div>
+                                        <div class="form-group">
+                                           <p>Email</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <p>Phone Number</p>
+                                         </div>
+                                         <div class="form-group">
+                                            <p>Age</p>
+                                         </div>
+                                         <div class="form-group">
+                                            <p>Address</p>
+                                         </div>
+                                         <div class="form-group">
+                                            <p>Experience</p>
+                                         </div>
+                                         <div class="form-group">
+                                            <p>Govt ID</p>
+                                         </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </Link>
-                <Link to="/" className="col-md-6 mb-4">
-                    <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <span className="flaticon-cat display-3 font-weight-normal text-secondary mb-3"></span>
-                        <h3 className="mb-3">Per Tracker</h3>
-                        <p>Track your pet whenever you want.</p>
-                    </div>
-                </Link>
+                  <Link to='/carer/profileedit' className="btn btn-lg btn-primary mb-5">Edit</Link>
+                </div>
             </div>
         </div>
-    </div>
+</div>
     </>
   )
 }

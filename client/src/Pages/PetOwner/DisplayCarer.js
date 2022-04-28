@@ -40,7 +40,12 @@ const DisplayCarer = () => {
                     carers.map((carer) => {
                         return (
                         <div className="col-md-6 col-lg-4 mb-4" key={carer._id}>
-                            <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                            <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5 m-auto">
+                                <div class="col-md-4">
+                                        <div class="text-center mb-2">
+                                            <img alt={carer.image} src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                        </div>
+                                </div>
                                 <h3 className="display-5 font-weight-normal text-secondary mb-3">{carer.name}</h3>
                                 <p>{carer.email}</p>
                                 <p>{carer.mobileNumber}</p>
