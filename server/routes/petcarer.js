@@ -96,10 +96,8 @@ router.get('/petcarers/bookings', carerAuth, async (req,res) => {
 
 router.post('/petcarers',auth, async (req,res) => {
     try{
-        // coordinates = [req.body.lng, req.body.lat]
-        // console.log(req.body)
-        coordinates = ['12.8498481', '77.6544856']
-        const petcarers = await PetCarer.find({})
+        coordinates = [req.body.lng, req.body.lat]
+        const petcarers = await PetCarer.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates }, $maxDistance: 10 * 3963.2 } }, availability: "Available" })
         res.status(200).send(petcarers)
     } catch(e) {
         res.status(500).send(e)
@@ -191,7 +189,7 @@ router.post('/petcarers/me/avatar', carerAuth, upload.single('avatar') ,async (r
 
 router.patch('/petcarers/me', carerAuth, async (req,res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name', 'email', 'password', 'age', 'address', 'mobileNumber', 'experience', 'availability']
+    const allowedUpdates = ['name', 'email', 'password', 'age', 'address', 'mobileNumber', 'experience', 'availability', 'location']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update)) 
     // every returns true if every return value is true
 

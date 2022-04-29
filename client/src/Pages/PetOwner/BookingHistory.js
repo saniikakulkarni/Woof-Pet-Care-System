@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "../../components/Navbar";
 import axios from '../../axios'
 import defaultProfile from "../../images/user_profile.png"
+import calendar from "../../images/calendar.png"
 
 const BookingHistory = () => {
 
@@ -45,7 +46,7 @@ const BookingHistory = () => {
             <div className="tab-pane fade show active" id="account" role="tabpanel">
               <h2 className="my-5">Booking History</h2>
               {
-                
+                bookings.length!==0 ?
                 bookings.map((booking) => {
                   return (
                   <div className="card top-border-radius px-4">
@@ -92,7 +93,14 @@ const BookingHistory = () => {
                       </form>
                     </div>
                   </div>
-                )})
+                )}) : (
+                  <div class = "d-block m-auto w-100">
+                  <img src= {calendar} alt="" width="128" height="128"/>
+                  <br/>
+                  <h1 className="display-4 mb-4">All caught up!</h1>
+                  <h4 className="text-secondary mb-3">Looks like you do not have any bookings!!</h4>
+                </div>
+                )
               }
             </div>
           </div>

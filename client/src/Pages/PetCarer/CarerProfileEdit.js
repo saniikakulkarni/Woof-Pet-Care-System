@@ -33,9 +33,16 @@ const CarerProfileEdit = () => {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
+
+        const locRes = await axios.post('/petcarers/location', { address:carerDetails.address })
+        if(locRes.data.error){
+            Notification("Warning", locRes.data.error, "danger")
+            return
+        }
+        const location = { type: 'Point', coordinates: [locRes.data.longitude, locRes.data.latitude]}
         const { name, email, password, age, address, mobileNumber, experience, availability } = carerDetails
         try{
-            await axios.patch('/petcarers/me', { name, email, password, age, address, mobileNumber, experience, availability }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+            await axios.patch('/petcarers/me', { name, email, password, age, address, mobileNumber, experience, availability, location }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
             Notification("Success", "Details Updated Successfully!!", "success")
             navigate("/carer/profile")
         } catch(e) {
