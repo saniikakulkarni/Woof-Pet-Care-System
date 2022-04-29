@@ -68,9 +68,12 @@ const CarerProfile = () => {
                                          <div className="form-group">
                                             <p><span className='font-weight-bold'>Availability :</span> {petcarerDetails.availability}</p>
                                          </div>
-                                         {/* <div class="form-group">
+                                         <div class="form-group">
+                                            <p>Availability</p>
+                                         </div>
+                                         <div class="form-group">
                                             <p>Govt ID</p>
-                                         </div> */}
+                                         </div>
                                     </div>
                                     <div className="col-md-4">
                                         <div className="text-center">
