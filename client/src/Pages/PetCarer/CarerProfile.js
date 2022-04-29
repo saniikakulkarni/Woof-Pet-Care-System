@@ -50,6 +50,7 @@ const CarerProfile = () => {
                                             <p>Govt ID</p>
                                          </div>
                                     </div>
+                                    
                                     <div class="col-md-4">
                                         <div class="text-center">
                                             <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>

@@ -23,7 +23,7 @@ import CarerSignup from "./Pages/PetCarer/CarerSignup"
 import CarerLogin from "./Pages/PetCarer/CarerLogin"
 import BookingDetails from "./Pages/PetCarer/BookingDetails"
 import CarerProfile from "./Pages/PetCarer/CarerProfile";
-
+import CarerProfileEdit from './Pages/PetCarer/CarerProfileEdit';
 
 
 function App() {
@@ -42,6 +42,7 @@ function App() {
 					<Route exact path="/owner/signup" element={<OwnerSignup />}/>
 					<Route exact path="/owner/profile" element={<OwnerProfile />}/>
 					<Route exact path="/owner/profileedit" element={<OwnerProfileEdit/>}/>
+					<Route exact path="/carer/profileedit" element={<CarerProfileEdit/>}/>
 					<Route exact path="/owner/displaycarer" element={<DisplayCarer/>}/>
 					<Route exact path="/owner/history" element={<BookingHistory/>}/>
 					<Route exact path="/owner/review/:id" element={<Review/>}/>
