@@ -39,40 +39,45 @@ const Navbar = () => {
         } 
     }
 
+    
+
     return (
         <>
         {/* <!-- Navbar Start --> */}
         <NavBar className="bg-dark navbar-dark py-3 py-lg-0 px-lg-5" expand="lg">
-            <Container>
+            <Container fluid>
                 <NavBar.Brand href="/" ><h1 className="m-0 display-5 text-capitalize font-italic text-white"><span className="text-primary">Woof</span></h1></NavBar.Brand>
                 <NavBar.Toggle aria-controls="basic-navbar-nav" />
-                <NavBar.Collapse id="basic-navbar-nav">
+                <NavBar.Collapse id="d-flex justify-content-between">
                 <Nav className="me-auto">
-                    {
-                        (token && type==='owner') && 
-                        <>
-                            <Nav.Link><Link to="/service" className="nav-item nav-link">Services</Link></Nav.Link>
-                            <Nav.Link><Link to="/owner/history" className="nav-item nav-link">Bookings</Link></Nav.Link>
-                        </>
-                    }
-                    <Nav.Link><Link to="/about" className="nav-item nav-link">About</Link></Nav.Link>
-                    {
-                        (token && type==='owner') && <Nav.Link><Link to="/owner/profile" className="nav-item nav-link">Profile</Link></Nav.Link>
-                    }
-                    {
-                        (token && type==='carer') && 
-                        <>
-                            <Nav.Link><Link to="/carer/profile" className="nav-item nav-link">Profile</Link></Nav.Link>
-                            <Nav.Link><Link to="/carer/bookingdetails" className="nav-item nav-link">Bookings</Link></Nav.Link>
-                        </>
-                    }
+                    
+                        {
+                            (token && type==='owner') && 
+                            <>
+                                <Nav.Link><Link to="/service" className="nav-item nav-link">Services</Link></Nav.Link>
+                                <Nav.Link><Link to="/owner/history" className="nav-item nav-link">Bookings</Link></Nav.Link>
+                            </>
+                        }
+                        <Nav.Link><Link to="/about" className="nav-item nav-link">About</Link></Nav.Link>
+                        {
+                            (token && type==='owner') && <Nav.Link><Link to="/owner/profile" className="nav-item nav-link">Profile</Link></Nav.Link>
+                        }
+                        {
+                            (token && type==='carer') && 
+                            <>
+                                <Nav.Link><Link to="/carer/profile" className="nav-item nav-link">Profile</Link></Nav.Link>
+                                <Nav.Link><Link to="/carer/bookingdetails" className="nav-item nav-link">Bookings</Link></Nav.Link>
+                            </>
+                        }                   
+                </Nav>
+                <Nav style={{"display": 'flex', 'justify-content': 'flex-end'}}>
                     {
                         token ? (
                             <button onClick={handleLogout} className="btn btn-lg btn-primary px-3 d-none d-lg-block mx-2">Logout </button>
                         ) : ( 
                             <>
-                                <Nav.Link><Link to='/owner/login' className="btn btn-lg btn-primary d-none d-lg-block mx-2">Pet Owner Login</Link></Nav.Link>
-                                <Nav.Link><Link to='/carer/login' className="btn btn-lg btn-primary d-none d-lg-block mx-2">Pet Carer Login</Link></Nav.Link>
+                                <Link to='/owner/login' className="btn btn-lg btn-primary d-none d-lg-block mx-2">Pet Owner Login</Link>
+                                <Link to='/carer/login' className="btn btn-lg btn-primary d-none d-lg-block mx-2">Pet Carer Login</Link>
                             </>
                         )
                     }
