@@ -6,6 +6,7 @@ import Notification from "../../components/Notification";
 import defaultProfile from "../../images/user_profile.png"
 
 import axios from "../../axios";
+import calendar from "../../images/calendar.png"
 
 const BookingDetails = () => {
   const navigate = useNavigate();
@@ -44,6 +45,13 @@ const BookingDetails = () => {
   return (
     <>
       <Navbar />
+      <div class = "d-block m-auto w-100">
+
+        <img src= {calendar} alt="" width="128" height="128"/>
+        <br/>
+        <h1 className="display-4 mb-4">All caught up!</h1>
+        <h4 className="text-secondary mb-3">Looks like you do not have any bookings!!</h4>
+      </div>
       <div className="container">
         <div className="col-md-10 col-xl-10">
           <div className="tab-content">
