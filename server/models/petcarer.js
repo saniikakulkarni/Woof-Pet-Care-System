@@ -101,6 +101,10 @@ const petCarerSchema = new mongoose.Schema({
     location:{
         type: pointSchema,
         required: true
+    },
+    availability:{
+        type:String,
+        default:"Available"
     }
 }, {
     timestamps:true
@@ -124,7 +128,6 @@ petCarerSchema.methods.toJSON = function(){
 
     delete petcarerObject.password
     delete petcarerObject.tokens
-    delete petcarerObject.avatar
 
     return petcarerObject
 }
@@ -141,16 +144,16 @@ petCarerSchema.statics.findByCredentials = async (email, password) => {
     const petcarer = await PetCarer.findOne({ email })
     
     if(!petcarer){
-        throw new Error('Unable to Login')
+        throw 'User not found'
     }
 
     const isMatch = await bcrypt.compare(password, petcarer.password)
 
     if(!isMatch){
-        throw new Error('Unable to Login')
+        throw 'Wrong password'
     }
 
-     return petcarer
+    return petcarer
 }
 
 petCarerSchema.pre('save', async function(next){
@@ -162,11 +165,11 @@ petCarerSchema.pre('save', async function(next){
     next()
 })
 
-// petCarerSchema.pre('remove', async function(next){
-//     const user = this
-//     await Task.deleteMany({ owner:user._id })
-//     next()
-// })
+petCarerSchema.pre('remove', async function(next){
+    const user = this
+    await Booking.deleteMany({ owner:user._id })
+    next()
+})
 
 const PetCarer = new mongoose.model('PetCarer', petCarerSchema)
 
