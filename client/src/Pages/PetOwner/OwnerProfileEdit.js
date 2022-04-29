@@ -3,6 +3,7 @@ import React, {useState,useEffect} from 'react'
 import Notification from "../../components/Notification"
 import Navbar from "../../components/Navbar"
 import axios from '../../axios';
+import defaultProfile from "../../images/user_profile.png"
 import { Link, useNavigate } from 'react-router-dom';
 
 const OwnerProfileEdit = () => {
@@ -83,7 +84,7 @@ const OwnerProfileEdit = () => {
                             <form>
                                 <div className="form-row">
                                     <div className="form-group col-md-12">
-                                        <img alt="User Profile" src={ `data:image/jpeg;base64,${ownerDetails.avatar}`} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
+                                        <img alt="User Profile" src={ownerDetails.avatar? `data:image/jpeg;base64,${ownerDetails.avatar}` : defaultProfile} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
                                     </div>
                                     <div className="form-group mt-3">
                                         <label htmlFor="avatar">Profile Image</label>

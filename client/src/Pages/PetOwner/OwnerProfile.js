@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from "../../components/Navbar"
+import defaultProfile from "../../images/user_profile.png"
 
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../../axios';
@@ -19,8 +20,6 @@ const OwnerProfile = () => {
             Notification("Warning", "Could not fetch user Details.", "danger")
         }
     }, [])
-
-    console.log(ownerDetails.avatar)
 
   return (
     <>
@@ -55,7 +54,9 @@ const OwnerProfile = () => {
                                     </div>
                                     <div class="col-md-4">
                                         <div class="text-center">
-                                            <img alt="" src={ `data:image/jpeg;base64,${ownerDetails.avatar}`} class="rounded-circle  img-responsive mt-2" width="150" height="150"/>
+                                            <img alt="" src={ ownerDetails.avatar ? (
+                                            `data:image/jpeg;base64,${ownerDetails.avatar}` ) : ( defaultProfile
+                                            )} class="rounded-circle  img-responsive mt-2" width="150" height="150"/>
                                         </div>
                                     </div>
                                 </div>
@@ -77,10 +78,10 @@ const OwnerProfile = () => {
                                     <p><span className='font-weight-bold'>Breed :</span> {ownerDetails.petBreed}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p><span className='font-weight-bold'>Likes :</span> {ownerDetails.petLikes}</p>
+                                    <p><span className='font-weight-bold'>Likes :</span> {ownerDetails.petLikes ? ownerDetails.petLikes : "None"}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p><span className='font-weight-bold'>Dislikes :</span> {ownerDetails.petDislikes}</p>
+                                    <p><span className='font-weight-bold'>Dislikes :</span> {ownerDetails.petDislikes ? ownerDetails.petDislikes : "None"}</p>
                                 </div>  
                             </form>
                         </div>

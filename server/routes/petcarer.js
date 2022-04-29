@@ -86,7 +86,6 @@ router.get('/petcarers/bookings', carerAuth, async (req,res) => {
         })
         res.send(bookings)
     } catch(e) {
-        console.log(e)
         res.status(400).send(e)
     }
 })
@@ -118,7 +117,7 @@ router.get('/petcarers/:id',auth, async (req,res) => {
     }
 })
 
-router.get('/petcarers/me',carerAuth, async (req,res) => {
+router.get('/petcarer/me', carerAuth, async (req,res) => {
     res.send(req.petcarer)
 })
 

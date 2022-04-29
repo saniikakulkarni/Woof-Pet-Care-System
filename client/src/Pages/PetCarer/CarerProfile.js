@@ -1,7 +1,9 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import Navbar from "../../components/Navbar"
 import Notification from '../../components/Notification'
+import defaultProfile from "../../images/user_profile.png"
 import { Link,useNavigate } from 'react-router-dom';
+import axios from '../../axios';
 
 const CarerProfile = () => {
 
@@ -13,46 +15,65 @@ const CarerProfile = () => {
         }
       },[])
 
+      const [petcarerDetails, setPetcarerDetails] = useState({})
+
+      useEffect(() => {
+        async function fetchCarerDetails(){
+            const response = await axios.get('/petcarer/me',{
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+              })
+            setPetcarerDetails(response.data)
+            
+        }
+        try {
+            fetchCarerDetails()
+        } catch(e) {
+            Notification("Warning", "Could not fetch user Details.", "danger")
+        }
+    }, [])
+
   return (
     <>
     <Navbar/>
-    <div class="container mt-5">
-        <div class="col-md-10 col-xl-9 m-auto">
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="account" role="tabpanel">
-                    <div class="card top-border-radius">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Pet Carer Details</h5>
+    <div className="container mt-5">
+        <div className="col-md-10 col-xl-9 m-auto">
+            <div className="tab-content">
+                <div className="tab-pane fade show active" id="account" role="tabpanel">
+                    <div className="card top-border-radius">
+                        <div className="card-header">
+                            <h5 className="card-title mb-0">Pet Carer Details</h5>
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <form>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                           <p>Name</p>
+                                <div className="row">
+                                    <div className="col-md-8">
+                                    <div className="form-group">
+                                           <p><span className='font-weight-bold'>Name :</span> {petcarerDetails.name}</p>
                                         </div>
-                                        <div class="form-group">
-                                           <p>Email</p>
+                                        <div className="form-group">
+                                           <p><span className='font-weight-bold'>Email :</span> {petcarerDetails.email}</p>
                                         </div>
-                                        <div class="form-group">
-                                            <p>Phone Number</p>
+                                        <div className="form-group">
+                                            <p><span className='font-weight-bold'>Phone Number :</span> {petcarerDetails.mobileNumber}</p>
                                          </div>
-                                         <div class="form-group">
-                                            <p>Age</p>
+                                         <div className="form-group">
+                                            <p><span className='font-weight-bold'>Age :</span> {petcarerDetails.age}</p>
                                          </div>
-                                         <div class="form-group">
-                                            <p>Address</p>
+                                         <div className="form-group">
+                                            <p><span className='font-weight-bold'>Address :</span> {petcarerDetails.address}</p>
                                          </div>
-                                         <div class="form-group">
-                                            <p>Experience</p>
+                                         <div className="form-group">
+                                         <p><span className='font-weight-bold'>Experience :</span> {petcarerDetails.experience}</p>
                                          </div>
-                                         <div class="form-group">
+                                         {/* <div class="form-group">
                                             <p>Govt ID</p>
-                                         </div>
+                                         </div> */}
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="text-center">
-                                            <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                    <div className="col-md-4">
+                                        <div className="text-center">
+                                            <img alt="" src={ petcarerDetails.avatar ? (
+                                            `data:image/jpeg;base64,${petcarerDetails.avatar}` ) : ( defaultProfile
+                                            )} className="rounded-circle img-responsive mt-2" width="128" height="128"/>
                                         </div>
                                     </div>
                                 </div>
