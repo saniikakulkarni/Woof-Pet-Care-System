@@ -4,6 +4,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const data = require('../helpers/defaultProfile')
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -79,7 +80,8 @@ const userSchema = new mongoose.Schema({
         }
     }],
     avatar:{
-        type:Buffer
+        type:Buffer,
+        default: data.binaryData,
     }
 }, {
     timestamps:true
@@ -91,7 +93,6 @@ userSchema.methods.toJSON = function(){
 
     delete userObject.password
     delete userObject.tokens
-    delete userObject.avatar
 
     return userObject
 }

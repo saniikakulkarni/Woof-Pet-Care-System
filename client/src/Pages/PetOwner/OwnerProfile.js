@@ -20,6 +20,7 @@ const OwnerProfile = () => {
         }
     }, [])
 
+    console.log(ownerDetails.avatar)
 
   return (
     <>
@@ -54,7 +55,7 @@ const OwnerProfile = () => {
                                     </div>
                                     <div class="col-md-4">
                                         <div class="text-center">
-                                            <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                            <img alt="" src={ `data:image/jpeg;base64,${ownerDetails.avatar}`} class="rounded-circle  img-responsive mt-2" width="150" height="150"/>
                                         </div>
                                     </div>
                                 </div>
