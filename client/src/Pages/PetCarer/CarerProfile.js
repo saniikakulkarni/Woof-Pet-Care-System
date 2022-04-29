@@ -63,7 +63,10 @@ const CarerProfile = () => {
                                             <p><span className='font-weight-bold'>Address :</span> {petcarerDetails.address}</p>
                                          </div>
                                          <div className="form-group">
-                                         <p><span className='font-weight-bold'>Experience :</span> {petcarerDetails.experience}</p>
+                                            <p><span className='font-weight-bold'>Experience :</span> {petcarerDetails.experience}</p>
+                                         </div>
+                                         <div className="form-group">
+                                            <p><span className='font-weight-bold'>Availability :</span> {petcarerDetails.availability}</p>
                                          </div>
                                          {/* <div class="form-group">
                                             <p>Govt ID</p>

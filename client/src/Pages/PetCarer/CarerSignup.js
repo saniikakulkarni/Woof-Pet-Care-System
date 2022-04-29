@@ -62,7 +62,7 @@ const CarerSignup = () => {
             <div className="row align-items-center">
                 <div className="col-lg-5">
                     <div className="bg-primary py-5 px-4 px-sm-5">
-                        <form className="py-5">
+                        <form className="py-5" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <input type="text" className="form-control border-0 p-4" placeholder="Name" required="required"  id='name' name='name' value={petcarer.name} onChange={handleChange}/>
                             </div>
@@ -73,10 +73,10 @@ const CarerSignup = () => {
                                 <input type="password" className="form-control border-0 p-4" placeholder="Password" required="required" id='password' name='password' value={petcarer.password} onChange={handleChange}/>
                             </div>
                             <div className="form-group">
-                                <input type="Number" className="form-control border-0 p-4" placeholder="Age" required="required" id='age' name='age' value={petcarer.age} onChange={handleChange}/>
+                                <input type="Number" className="form-control border-0 p-4" placeholder="Age" required="required" id='age' name='age' value={petcarer.age} min="18" onChange={handleChange}/>
                             </div>
                             <div className="form-group">
-                                <input className="form-control border-0 p-4" placeholder="Mobile Number" required="required" type='Number' id='mobileNumber' name='mobileNumber' value={petcarer.mobileNumber} onChange={handleChange}/>
+                                <input className="form-control border-0 p-4" placeholder="Mobile Number" required="required" type='Number' id='mobileNumber' name='mobileNumber' value={petcarer.mobileNumber} minLength="10" maxLength="10" onChange={handleChange}/>
                             </div>
                             <div className="form-group">
                                 <input  className="form-control border-0 p-4" type="text" placeholder="Years of Experience" required="required" id='experience' name='experience' value={petcarer.experience} onChange={handleChange}/>
@@ -88,7 +88,7 @@ const CarerSignup = () => {
                                 <textarea className="form-control border-0 py-2" placeholder="Address" required="required" id='address' name='address' value={petcarer.address} onChange={handleChange}/>
                             </div>
                             <div>
-                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" onClick={handleSubmit} >Sign Up</button>
+                                <button className="btn btn-dark btn-block border-0 py-3" type="submit" >Sign Up</button>
                             </div>
                     
                         </form>

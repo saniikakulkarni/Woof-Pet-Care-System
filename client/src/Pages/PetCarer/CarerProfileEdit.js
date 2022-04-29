@@ -3,6 +3,7 @@ import React, {useState,useEffect} from 'react'
 import Notification from "../../components/Notification"
 import Navbar from "../../components/Navbar"
 import axios from '../../axios';
+import defaultProfile from "../../images/user_profile.png"
 import { Link, useNavigate } from 'react-router-dom';
 
 const CarerProfileEdit = () => {
@@ -14,7 +15,7 @@ const CarerProfileEdit = () => {
 
     useEffect(() => {
         async function fetchcarerDetails(){
-            const response = await axios.get('/carers/me',{ headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+            const response = await axios.get('/petcarer/me',{ headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
             setcarerDetails(response.data)
         }
         try {
@@ -23,18 +24,18 @@ const CarerProfileEdit = () => {
             Notification("Warning", "Could not fetch carer Details.", "danger")
         }
     }, [])
-
+    console.log(carerDetails)
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setcarerDetails({ ...carerDetails, [name]: value });
-      };
+    };
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const { name, email, password, age, address, mobileNumber } = carerDetails
+        const { name, email, password, age, address, mobileNumber, experience, availability } = carerDetails
         try{
-            await axios.patch('/carers/me', { name, email, password, age, address, mobileNumber }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+            await axios.patch('/petcarers/me', { name, email, password, age, address, mobileNumber, experience, availability }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
             Notification("Success", "Details Updated Successfully!!", "success")
             navigate("/carer/profile")
         } catch(e) {
@@ -42,22 +43,25 @@ const CarerProfileEdit = () => {
         }
     }
 
-    console.log(carerDetails.avatar)
-
     const handleProfileSubmit = async (event) => {
         event.preventDefault()
+        if(!profileImage){
+            Notification("Warning", "Please upload image" , "danger")
+            return
+        }
         const formData = new FormData();
         formData.append("avatar", profileImage);
-        try {
-          const response = await axios.post("/carers/me/avatar", formData, {
+        
+        const {data} = await axios.post("/petcarers/me/avatar", formData, {
             headers: { 
                 "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${localStorage.getItem('token')}` 
             }
-          });
-          Notification("Success", "Profile image updated", "success")
-        } catch(error) {
-            Notification("Warning", "Profile image update failed", "danger")
+        });
+        if(data.error){
+            Notification("Warning", data.error , "danger")
+        } else {
+            Notification("Success", "Profile image updated", "success")
         }
       }
     
@@ -65,7 +69,7 @@ const CarerProfileEdit = () => {
         setProfileImage(event.target.files[0])
       }
     
-
+console.log(carerDetails.availability)
   return (
     <>
     <Navbar/>
@@ -79,7 +83,9 @@ const CarerProfileEdit = () => {
                             <form>
                                 <div className="form-row">
                                     <div className="form-group col-md-12">
-                                        <img alt="" src={ carerDetails.avatar} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
+                                        <img alt="" src={ carerDetails.avatar ? (
+                                            `data:image/jpeg;base64,${carerDetails.avatar}` ) : ( defaultProfile
+                                            )} className="rounded-circle img-responsive mt-2" width="128" height="128"/>                                                                            
                                     </div>
                                     <div className="form-group mt-3">
                                         <label htmlFor="avatar">Profile Image</label>
@@ -117,10 +123,10 @@ const CarerProfileEdit = () => {
                                     <label htmlFor="Experience">Experience</label>
                                     <input type="number" className="form-control" id="Experience" name="Experience" value={carerDetails.experience} onChange={handleChange} placeholder="Experience"/>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="availability">Availability</label>
                                     <br />
-                                    <select name="availability" id="availability">
+                                    <select className="form-control" name="availability" id="availability" value={carerDetails.availability} onChange={handleChange}>
                                         <option value="Not Available">Not available</option>
                                         <option value="Available">Available</option>
                                     </select>

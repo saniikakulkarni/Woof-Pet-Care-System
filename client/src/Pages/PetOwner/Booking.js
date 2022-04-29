@@ -4,6 +4,7 @@ import axios from '../../axios'
 
 import Navbar from "../../components/Navbar"
 import Notification from "../../components/Notification"
+import defaultProfile from "../../images/user_profile.png"
 
 const Booking = () => {
     const { id } = useParams()
@@ -79,18 +80,20 @@ const Booking = () => {
                                         <p><span className='font-weight-bold'>Address :</span> {carerDetails.address}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p><span className='font-weight-bold'>Experience :</span> {carerDetails.experience}</p>
+                                        <p><span className='font-weight-bold'>Experience :</span> {carerDetails.experience} years</p>
                                     </div>
                                     <div class="form-group">
                                         <p><span className='font-weight-bold'>Cost :</span> ₹{carerDetails.cost} per day</p>
                                     </div>
                                     <div class="form-group">
-                                        <p>Total Cost : {totalCost}</p>
+                                        <p className='font-weight-bold text-primary'>Total Cost : ₹{totalCost}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-center">
-                                        <img alt="" src="" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
+                                        <img alt="" src={ carerDetails.avatar ? (
+                                        `data:image/jpeg;base64,${carerDetails.avatar}` ) : ( defaultProfile
+                                        )} class="rounded-circle img-responsive mt-2" width="128" height="128"/>
                                     </div>
                                 </div>
                             </div>
