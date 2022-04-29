@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import Navbar from "../../components/Navbar";
 import Notification from "../../components/Notification";
+import defaultProfile from "../../images/user_profile.png"
+
 import axios from "../../axios";
 import calendar from "../../images/calendar.png"
 
@@ -37,6 +40,8 @@ const BookingDetails = () => {
     }
   }, []);
 
+  console.log(bookings)
+
   return (
     <>
       <Navbar />
@@ -53,7 +58,7 @@ const BookingDetails = () => {
           <div className="tab-content">
             <div className="tab-pane fade show active" id="account" role="tabpanel">
             <h2 className="my-5">Booking Details</h2>
-            {bookings.map((booking) => {
+            { bookings.length!==0 ? (bookings.map((booking) => {
                 return (
                   <div className="card top-border-radius">
                     <div className="card-body">
@@ -82,7 +87,7 @@ const BookingDetails = () => {
                             <div className="text-center">
                               <img
                                 alt=""
-                                src=""
+                                src={booking.user[0].avatar? `data:image/jpeg;base64,${booking.user[0].avatar}` : defaultProfile}
                                 className="rounded-circle img-responsive mt-2"
                                 width="128"
                                 height="128"
@@ -93,7 +98,8 @@ const BookingDetails = () => {
                     </div>
                 </div>
                 );
-              })}
+              })) : ("None")
+              }
               
             </div>
           </div>

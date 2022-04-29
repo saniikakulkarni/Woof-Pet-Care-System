@@ -37,7 +37,7 @@ const OwnerLogin = () => {
         localStorage.setItem('type', 'owner')
         navigate("/")
     } else {
-        Notification("Warning", "Could not login.", "danger")
+        Notification("Warning", data.error.message, "danger")
         setUser({ email: '', password: '' })
     }
     //console.log(data)

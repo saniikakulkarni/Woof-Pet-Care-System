@@ -2,6 +2,7 @@ import React,{ useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "../../components/Navbar";
 import axios from '../../axios'
+import defaultProfile from "../../images/user_profile.png"
 
 const BookingHistory = () => {
 
@@ -73,7 +74,9 @@ const BookingHistory = () => {
                             <div className="text-center">
                               <img
                                 alt=""
-                                src=""
+                                src={ booking.petcarer[0].avatar ? (
+                                  `data:image/jpeg;base64,${booking.petcarer[0].avatar}` ) : ( defaultProfile
+                                  )}
                                 className="rounded-circle img-responsive mt-2"
                                 width="128"
                                 height="128"

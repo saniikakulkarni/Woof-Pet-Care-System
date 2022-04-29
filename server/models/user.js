@@ -81,7 +81,6 @@ const userSchema = new mongoose.Schema({
     }],
     avatar:{
         type:Buffer,
-        default: data.binaryData,
     }
 }, {
     timestamps:true
@@ -109,13 +108,13 @@ userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
     
     if(!user){
-        throw new Error('Unable to Login')
+        throw 'User not found'
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
 
     if(!isMatch){
-        throw new Error('Unable to Login')
+        throw 'Wrong password'
     }
 
      return user
@@ -132,7 +131,8 @@ userSchema.pre('save', async function(next){
 
 userSchema.pre('remove', async function(next){
     const user = this
-    await Task.deleteMany({ owner:user._id })
+    await Booking.deleteMany({ owner:user._id })
+    await Review.deleteMany({ owner:user._id })
     next()
 })
 

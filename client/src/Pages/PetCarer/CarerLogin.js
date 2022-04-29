@@ -37,7 +37,7 @@ const CarerLogin = () => {
         localStorage.setItem('type', 'carer')
         navigate("/")
     }else{
-        Notification("Warning", "Could not login.", "danger")
+        Notification("Warning", data.error.message, "danger")
         setPetCarer({ email: '', password: '' })
     }
     //console.log(data)

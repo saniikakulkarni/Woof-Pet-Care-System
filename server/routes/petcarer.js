@@ -44,7 +44,9 @@ router.post('/petcarers/login', async (req,res) => {
         const token = await petcarer.generateAuthToken()
         res.send({petcarer,token})
     } catch(e) {
-        res.status(400).send(e)
+        res.send({error:{
+            message:e
+        }}).status(400)
     }
 })
 
@@ -86,7 +88,6 @@ router.get('/petcarers/bookings', carerAuth, async (req,res) => {
         })
         res.send(bookings)
     } catch(e) {
-        console.log(e)
         res.status(400).send(e)
     }
 })
@@ -118,30 +119,30 @@ router.get('/petcarers/:id',auth, async (req,res) => {
     }
 })
 
-router.get('/petcarers/me',carerAuth, async (req,res) => {
+router.get('/petcarer/me', carerAuth, async (req,res) => {
     res.send(req.petcarer)
 })
 
-// const upload = multer({
-//     limits:{
-//         fileSize: 1000000
-//     },
-//     fileFilter(req, file, cb){
-//         if(!file.originalname.match(/\.(jpeg|jpg|png)$/)){
-//             cb(new Error('PLease upload image file with format jpeg | jpg | png'))
-//         }
-//         cb(undefined,true)
-//     }
-// })
+const upload = multer({
+    limits:{
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb){
+        if(!file.originalname.match(/\.(jpeg|jpg|png)$/)){
+            cb(new Error('PLease upload image file with format jpeg | jpg | png'))
+        }
+        cb(undefined,true)
+    }
+})
 
-// router.post('/users/me/avatar', auth, upload.single('avatar') ,async (req,res) => {
-//     const buffer = await sharp(req.file.buffer).resize({ width:250, height:250 }).png().toBuffer()
-//     req.user.avatar = buffer
-//     await req.user.save()
-//     res.send()
-// },(error, req, res, next) => {
-//     res.status(400).send({ error: error.message })
-// })
+router.post('/petcarers/me/avatar', carerAuth, upload.single('avatar') ,async (req,res) => {
+    const buffer = await sharp(req.file.buffer).resize({ width:250, height:250 }).png().toBuffer()
+    req.petcarer.avatar = buffer
+    await req.petcarer.save()
+    res.send()
+},(error, req, res, next) => {
+    res.send({ error: error.message }).status(400)
+})
 
 // router.delete('/users/me/avatar', auth, async (req, res) => {
 //     req.user.avatar = undefined
@@ -188,25 +189,25 @@ router.get('/petcarers/me',carerAuth, async (req,res) => {
 //     // })
 // })
 
-// router.patch('/users/me', auth, async (req,res) => {
-//     const updates = Object.keys(req.body)
-//     const allowedUpdates = ['name', 'email', 'password', 'age']
-//     const isValidOperation = updates.every((update) => allowedUpdates.includes(update)) 
-//     // every returns true if every return value is true
+router.patch('/petcarers/me', carerAuth, async (req,res) => {
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['name', 'email', 'password', 'age', 'address', 'mobileNumber', 'experience', 'availability']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update)) 
+    // every returns true if every return value is true
 
-//     if(!isValidOperation){
-//         return res.status(400).send({ error: 'Invalid Updates!' })
-//     }
+    if(!isValidOperation){
+        return res.status(400).send({ error: 'Invalid Updates!' })
+    }
 
-//     try{
-//         updates.forEach((update) => req.user[update] = req.body[update])
-//         await req.user.save()
-//         res.send(req.user)
+    try{
+        updates.forEach((update) => req.petcarer[update] = req.body[update])
+        await req.petcarer.save()
+        res.send(req.petcarer)
 
-//     } catch(e) {
-//         res.status(400).send(e)
-//     }
-// })
+    } catch(e) {
+        res.status(400).send(e)
+    }
+})
 
 // router.delete('/users/me', auth, async (req,res) => {
 //     try{
