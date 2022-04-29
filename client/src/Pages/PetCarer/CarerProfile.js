@@ -49,6 +49,9 @@ const CarerProfile = () => {
                                          <div class="form-group">
                                             <p>Govt ID</p>
                                          </div>
+                                         <div class="form-group">
+                                            <p>Availability</p>
+                                         </div>
                                     </div>
                                     
                                     <div class="col-md-4">

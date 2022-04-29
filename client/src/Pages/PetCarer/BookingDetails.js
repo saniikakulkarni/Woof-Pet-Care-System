@@ -40,12 +40,13 @@ const BookingDetails = () => {
   return (
     <>
       <Navbar />
-      <div class = "d-block m-auto w-100">
-
-        <img src= {calendar} alt="" width="128" height="128"/>
+      <div className = "p-5 m-5">
+        <div className = "d-flex justify-content-center">
+            <img src= {calendar} alt="" width="128" height="128"/>
+        </div>
         <br/>
-        <h1 className="display-4 mb-4">All caught up!</h1>
-        <h4 className="text-secondary mb-3">Looks like you do not have any bookings!!</h4>
+        <h1 className="text-center mb-4">All caught up!</h1>
+        <h4 className="text-center text-secondary mb-3">Looks like you do not have any bookings.</h4>
       </div>
       <div className="container">
         <div className="col-md-10 col-xl-10">
