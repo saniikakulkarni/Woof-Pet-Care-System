@@ -37,6 +37,10 @@ app.use(userRouter);
 app.use(carerRouter);
 app.use(bookingRouter);
 
+if(process.env.NODE_ENV == "production"){
+	app.use(express.static("client/build"))
+}
+
 // listener
 const server = app.listen(port, () =>
 	console.log(`Server is running on port ${port}`)
